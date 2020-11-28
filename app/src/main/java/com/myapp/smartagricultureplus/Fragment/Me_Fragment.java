@@ -45,7 +45,6 @@ public class Me_Fragment extends Fragment implements View.OnClickListener {
 
     private void onClick() {
         llt_login.setOnClickListener(this);
-        tv_backLogin.setOnClickListener(this);
     }
 
     private void initData() {
@@ -53,6 +52,7 @@ public class Me_Fragment extends Fragment implements View.OnClickListener {
     }
 
     private void initView() {
+        tv_userId=getActivity().findViewById(R.id.tv_userId);
          llt_login=getActivity().findViewById(R.id.llt_login);
          tv_backLogin=getActivity().findViewById(R.id.tv_backLogin);
     }
@@ -80,6 +80,7 @@ public class Me_Fragment extends Fragment implements View.OnClickListener {
                     String phone = (String) phoneMap.get("phone");
                     // TODO 利用国家代码和手机号码进行后续的操作
                     tv_userId.setText(phone);
+                    tv_backLogin.setVisibility(View.VISIBLE);
                 } else{
                     // TODO 处理错误的结果
                 }
