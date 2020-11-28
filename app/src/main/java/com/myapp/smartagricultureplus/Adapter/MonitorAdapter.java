@@ -57,7 +57,7 @@ ArrayList<Monitor> monitors;
         public MonitorViewHolder(@NonNull View itemView) {
             super(itemView);
              iv_monitorIcon=itemView.findViewById(R.id.iv_monitorIcon);
-             tv_monitorPoint=itemView.findViewById(R.id.tv_monitorPoint);
+//             tv_monitorPoint=itemView.findViewById(R.id.tv_monitorPoint);
              tv_monitorName=itemView.findViewById(R.id.tv_monitorName);
         }
     }

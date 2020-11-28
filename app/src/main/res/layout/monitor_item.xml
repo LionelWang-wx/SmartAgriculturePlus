@@ -5,46 +5,46 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="12dp"
-    android:layout_margin="25dp"
+    android:layout_margin="10dp"
     android:layout_gravity="center_horizontal"
-    android:background="@color/background"
-    app:cardElevation="10dp">
+    app:cardElevation="2dp">
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="136dp"
+        android:layout_height="206dp"
         android:orientation="vertical"
-        android:padding="22dp"
+        android:paddingTop="30dp"
+        android:paddingBottom="18dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:gravity="center"
+        android:background="@mipmap/img_small_background"
         >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
             >
 
 
             <ImageView
                 android:id="@+id/iv_monitorIcon"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+                android:layout_width="40dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
                 android:src="@mipmap/img_carousel1" />
 
-            <TextView
-                android:id="@+id/tv_monitorPoint"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="..."
-                android:layout_weight="1"
-                android:gravity="right"
-                />
         </LinearLayout>
 
         <TextView
             android:id="@+id/tv_monitorName"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="温湿度传感器"
+            android:layout_gravity="center"
+            android:gravity="center"
             android:textSize="18sp"
             android:layout_marginTop="8dp"
             />

@@ -36,6 +36,11 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"/>
 
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@mipmap/img_scan_it_tow"/>
+
         <com.myapp.smartagricultureplus.DiyView.TabView
             android:id="@+id/tb_bt_wechat3"
             android:layout_width="wrap_content"
