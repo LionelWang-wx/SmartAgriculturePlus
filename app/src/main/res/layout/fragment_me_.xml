@@ -37,7 +37,7 @@
             <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_marginLeft="20dp"
                 android:id="@+id/civ_userHeader"
-                android:src="@mipmap/testimageview"
+                android:src="@mipmap/img_not_logged_in"
                 android:layout_gravity="center"
                 android:layout_width="60dp"
                 android:layout_height="60dp">
