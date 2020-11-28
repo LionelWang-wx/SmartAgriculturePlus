@@ -1,5 +1,6 @@
 package com.myapp.smartagricultureplus.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -17,12 +18,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.myapp.smartagricultureplus.Activity.OtherActivity;
 import com.myapp.smartagricultureplus.R;
 
 import java.util.ArrayList;
 
 
-public class Home_Fragment extends Fragment {
+public class Home_Fragment extends Fragment implements View.OnClickListener {
     //轮播图片
     private int [] Carousel=new int[]{R.mipmap.img_carousel3,R.mipmap.img_carousel1,R.mipmap.img_carousel2,R.mipmap.img_carousel3,R.mipmap.img_carousel1};
     private  boolean icon=true;
@@ -30,7 +32,7 @@ public class Home_Fragment extends Fragment {
     private LinearLayout circlecan;
     ViewPager viewPager;
     private ArrayList<ImageView> mdots=new ArrayList<>();
-
+    ImageView iv_notice;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -44,12 +46,15 @@ public class Home_Fragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         initView();
         initViewPager();
-
+        onClick();
         viewPager.setOffscreenPageLimit(3);
         viewPager.setPageMargin(40);
         viewPager.setCurrentItem(1);
     }
 
+    private void onClick() {
+        iv_notice.setOnClickListener(this);
+    }
 
 
     private void initViewPager() {
@@ -169,8 +174,19 @@ public class Home_Fragment extends Fragment {
     }
 
     private void initView() {
+        iv_notice=getActivity().findViewById(R.id.iv_notice);
         circlecan=getActivity().findViewById(R.id.ll_circle_can);
         viewPager=getActivity().findViewById(R.id.vp_carousel);
     }
 
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.iv_notice:
+                Intent intent=new Intent(getActivity(), OtherActivity.class);
+                intent.putExtra("fragmentName","NotificationCenter");
+                getActivity().startActivity(intent);
+                break;
+        }
+    }
 }

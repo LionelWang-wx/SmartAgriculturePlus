@@ -50,7 +50,7 @@ public class Monitor_All_Fragment extends Fragment {
     }
 
     private void initAdapter() {
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(),3,LinearLayoutManager.VERTICAL,false);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(),2,LinearLayoutManager.VERTICAL,false);
         rcv_monitor_All.setLayoutManager(gridLayoutManager);
         MonitorAdapter monitorAdapter = new MonitorAdapter(getActivity(), monitors);
         rcv_monitor_All.setAdapter(monitorAdapter);
