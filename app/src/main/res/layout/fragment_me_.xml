@@ -1,25 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/theme_background"
+    android:orientation="vertical">
 
-
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Fragment.Me_Fragment">
-<LinearLayout
-    android:background="@color/gray"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
     <RelativeLayout
-        android:background="@color/white"
+        android:background="@color/background"
         android:layout_width="match_parent"
-        android:layout_height="200dp">
+        android:layout_height="150dp">
         <LinearLayout
             android:gravity="right"
             android:layout_width="match_parent"
-            android:layout_height="100dp">
+            android:layout_height="50dp">
             <ImageView
                 android:layout_marginRight="20dp"
                 android:layout_marginTop="20dp"
@@ -27,9 +21,12 @@
                 android:layout_width="28dp"
                 android:layout_height="28dp"/>
         </LinearLayout>
+
+
         <LinearLayout
             android:layout_alignParentBottom="true"
             android:layout_width="match_parent"
+            android:gravity="center"
             android:layout_height="100dp">
         <LinearLayout
             android:layout_weight="1"
@@ -40,8 +37,9 @@
                 android:layout_marginLeft="20dp"
                 android:id="@+id/civ_userHeader"
                 android:src="@mipmap/testimageview"
-                android:layout_width="80dp"
-                android:layout_height="80dp">
+                android:layout_gravity="center"
+                android:layout_width="60dp"
+                android:layout_height="60dp">
 
             </de.hdodenhof.circleimageview.CircleImageView>
             <TextView
@@ -49,36 +47,29 @@
                 android:layout_marginLeft="20dp"
                 android:id="@+id/tx_userId"
                 android:textSize="24sp"
-                android:layout_marginTop="-10dp"
                 android:layout_gravity="center"
                 android:text="你的ID"
+                android:gravity="center"
                 android:textColor="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
 
         </LinearLayout>
-            <LinearLayout
-                android:layout_gravity="right"
-                android:layout_weight="3"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
 
+                <ImageView
+                    android:layout_marginRight="20dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@mipmap/img_nextpage"/>
             </LinearLayout>
-            <ImageView
-                android:layout_marginTop="-15dp"
-                android:layout_marginRight="20dp"
-                android:background="@mipmap/image_sanf"
-                android:layout_gravity="center"
-                android:layout_width="28dp"
-                android:layout_height="28dp"/>
-        </LinearLayout>
+
 
 </RelativeLayout>
     <LinearLayout
         android:orientation="horizontal"
         android:layout_marginTop="20dp"
-        android:background="@color/white"
+        android:background="@color/background"
         android:layout_width="match_parent"
         android:layout_height="70dp">
         <LinearLayout
@@ -88,10 +79,10 @@
             android:layout_height="70dp">
             <ImageView
                 android:layout_marginLeft="20dp"
-                android:background="@mipmap/image_sanf"
+                android:background="@mipmap/img_greenhouse_management"
                 android:layout_gravity="center"
-                android:layout_width="40dp"
-                android:layout_height="40dp"/>
+                android:layout_width="30dp"
+                android:layout_height="30dp"/>
             <TextView
                 android:layout_marginLeft="20dp"
                 android:textSize="18dp"
@@ -106,21 +97,22 @@
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="70dp">
-            <TextView
-                android:textColor="@color/lightgray"
-                android:textSize="25dp"
-                android:text=">"
+
+            <ImageView
+                android:layout_marginRight="20dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_gravity="center"
-                android:layout_width="40dp"
-                android:layout_height="40dp"/>
+                android:src="@mipmap/img_nextpage"/>
 
         </LinearLayout>
 
     </LinearLayout>
+
     <LinearLayout
         android:orientation="horizontal"
         android:layout_marginTop="20dp"
-        android:background="@color/white"
+        android:background="@color/background"
         android:layout_width="match_parent"
         android:layout_height="70dp">
         <LinearLayout
@@ -130,10 +122,10 @@
             android:layout_height="70dp">
             <ImageView
                 android:layout_marginLeft="20dp"
-                android:background="@mipmap/image_sanf"
+                android:background="@mipmap/img_messagecenter"
                 android:layout_gravity="center"
-                android:layout_width="40dp"
-                android:layout_height="40dp"/>
+                android:layout_width="28dp"
+                android:layout_height="28dp"/>
             <TextView
                 android:layout_marginLeft="20dp"
                 android:textSize="18dp"
@@ -147,14 +139,15 @@
             android:gravity="right"
             android:layout_weight="1"
             android:layout_width="match_parent"
+            android:background="@color/background"
             android:layout_height="70dp">
-            <TextView
-                android:textColor="@color/lightgray"
-                android:textSize="25dp"
-                android:text=">"
+
+            <ImageView
+                android:layout_marginRight="20dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_gravity="center"
-                android:layout_width="40dp"
-                android:layout_height="40dp"/>
+                android:src="@mipmap/img_nextpage"/>
 
         </LinearLayout>
 
@@ -172,10 +165,10 @@
             android:layout_height="70dp">
             <ImageView
                 android:layout_marginLeft="20dp"
-                android:background="@mipmap/image_sanf"
+                android:background="@mipmap/img_common_problem"
                 android:layout_gravity="center"
-                android:layout_width="40dp"
-                android:layout_height="40dp"/>
+                android:layout_width="30dp"
+                android:layout_height="30dp"/>
             <TextView
                 android:layout_marginLeft="20dp"
                 android:textSize="18dp"
@@ -190,13 +183,13 @@
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="70dp">
-            <TextView
-                android:textColor="@color/lightgray"
-                android:textSize="25dp"
-                android:text=">"
+
+            <ImageView
+                android:layout_marginRight="20dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_gravity="center"
-                android:layout_width="40dp"
-                android:layout_height="40dp"/>
+                android:src="@mipmap/img_nextpage"/>
 
         </LinearLayout>
 
@@ -213,10 +206,10 @@
             android:layout_height="70dp">
             <ImageView
                 android:layout_marginLeft="20dp"
-                android:background="@mipmap/image_sanf"
+                android:background="@mipmap/img_more_services"
                 android:layout_gravity="center"
-                android:layout_width="40dp"
-                android:layout_height="40dp"/>
+                android:layout_width="30dp"
+                android:layout_height="30dp"/>
             <TextView
                 android:layout_marginLeft="20dp"
                 android:textSize="18dp"
@@ -231,21 +224,20 @@
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="70dp">
-            <TextView
-                android:textColor="@color/lightgray"
-                android:textSize="25dp"
-                android:text=">"
-                android:layout_gravity="center"
-                android:layout_width="40dp"
-                android:layout_height="40dp"/>
 
+            <ImageView
+                android:layout_marginRight="20dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:src="@mipmap/img_nextpage"/>
         </LinearLayout>
 
     </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
         android:layout_marginTop="20dp"
-        android:background="@color/white"
+        android:background="@color/background"
         android:layout_width="match_parent"
         android:layout_height="70dp">
         <LinearLayout
@@ -253,12 +245,14 @@
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="70dp">
+
             <ImageView
-                android:layout_marginLeft="20dp"
-                android:background="@mipmap/image_sanf"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_gravity="center"
-                android:layout_width="40dp"
-                android:layout_height="40dp"/>
+                android:layout_marginLeft="20dp"
+                android:background="@mipmap/img_set_up" />
+
             <TextView
                 android:layout_marginLeft="20dp"
                 android:textSize="18dp"
@@ -273,13 +267,13 @@
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="70dp">
-            <TextView
-                android:textColor="@color/lightgray"
-                android:textSize="25dp"
-                android:text=">"
+
+            <ImageView
+                android:layout_marginRight="20dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_gravity="center"
-                android:layout_width="40dp"
-                android:layout_height="40dp"/>
+                android:src="@mipmap/img_nextpage"/>
 
         </LinearLayout>
 
@@ -287,11 +281,11 @@
     <LinearLayout
         android:gravity="center"
         android:layout_marginTop="20dp"
-        android:background="@color/white"
+        android:background="@color/background"
         android:layout_width="match_parent"
         android:layout_height="70dp">
         <TextView
-            android:textColor="@color/lightgray"
+            android:textColor="#ACA9A9"
             android:textSize="22dp"
             android:text="退出登录"
             android:layout_width="wrap_content"
@@ -301,5 +295,3 @@
     </LinearLayout>
 
 </LinearLayout>
-
-</FrameLayout>
