@@ -37,6 +37,7 @@
             android:layout_weight="1"/>
 
         <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/cleimg_scabInt"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:src="@mipmap/img_scan_it_tow"/>

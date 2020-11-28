@@ -1,5 +1,6 @@
 package com.myapp.smartagricultureplus.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,9 +18,12 @@ import com.myapp.smartagricultureplus.Fragment.Me_Fragment;
 import com.myapp.smartagricultureplus.Fragment.Monitor_Fragment;
 import com.myapp.smartagricultureplus.R;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     private Contror_Fragment contror_fragment;
     private Me_Fragment me_fragment;
 
+    private CircleImageView mCleimgScabInt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
         initviews();
         initviewpagerAdapter();
-        initend();
+        initData();
     }
 
     /**
@@ -63,8 +68,7 @@ public class MainActivity extends AppCompatActivity {
         super.onSaveInstanceState(outState);
         outState.putInt(BUNDLE_KEY_POS, viewPager.getCurrentItem());
     }
-
-    private void initend() {
+    private void initData() {
 
         for (int i = 0; i < mtad.size(); i++) {
             TabView view = mtad.get(i);
@@ -80,6 +84,19 @@ public class MainActivity extends AppCompatActivity {
             });
 
         }
+
+        //扫一扫
+        mCleimgScabInt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent i = new Intent(MainActivity.this,Scanning_DeviceActivity.class);
+                startActivity(i);
+            }
+        });
+
+
+
     }
 
     private void initviewpagerAdapter() {
@@ -168,6 +185,9 @@ public class MainActivity extends AppCompatActivity {
         mtad.add(tb_wechat2);
         mtad.add(tb_wechat3);
         mtad.add(tb_wechat4);
+
+        //扫一扫
+        mCleimgScabInt = findViewById(R.id.cleimg_scabInt);
 
 
         tb_wechat1.setIconandText(R.mipmap.home_img, R.mipmap._home_img, "首页");
