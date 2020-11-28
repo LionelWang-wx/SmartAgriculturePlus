@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment.Monitor_Fragment"
+    android:orientation="vertical">
+
+
+    -<LinearLayout android:orientation="horizontal"
+    android:layout_height="35dp"
+    android:layout_width="match_parent"
+    android:background="#eee">
+
+    <com.myapp.smartagricultureplus.DiyView.MonitorTabView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_weight="1"
+        android:id="@+id/tab_monitor_all"/>
+
+    <com.myapp.smartagricultureplus.DiyView.MonitorTabView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_weight="1"
+        android:id="@+id/tab_monitor_to1"/>
+
+    <com.myapp.smartagricultureplus.DiyView.MonitorTabView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_weight="1"
+        android:id="@+id/tab_monitor_to2"/>
+
+    <com.myapp.smartagricultureplus.DiyView.MonitorTabView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_weight="1"
+        android:id="@+id/tab_monitor_to3"/>
+
+    <com.myapp.smartagricultureplus.DiyView.MonitorTabView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_weight="1"
+        android:id="@+id/tab_monitor_to4"/>
+
+    <com.myapp.smartagricultureplus.DiyView.MonitorTabView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_weight="1"
+        android:id="@+id/tab_monitor_to5"/>
+
+</LinearLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:id="@+id/vp_monitor"/>
+
+</LinearLayout>
