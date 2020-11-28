@@ -11,15 +11,21 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.myapp.smartagricultureplus.Activity.OtherActivity;
+import com.myapp.smartagricultureplus.Object.Weather;
 import com.myapp.smartagricultureplus.R;
+import com.myapp.smartagricultureplus.interfaceJava.RequestDataBackListener;
+import com.myapp.smartagricultureplus.tool.WeatherNetworkRequest;
 
 import java.util.ArrayList;
 
@@ -32,7 +38,7 @@ public class Home_Fragment extends Fragment implements View.OnClickListener {
     private LinearLayout circlecan;
     ViewPager viewPager;
     private ArrayList<ImageView> mdots=new ArrayList<>();
-    ImageView iv_notice;
+    TextView tv_temperature,tv_date,tv_cityName;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -45,6 +51,7 @@ public class Home_Fragment extends Fragment implements View.OnClickListener {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         initView();
+        initData();
         initViewPager();
         onClick();
         viewPager.setOffscreenPageLimit(3);
@@ -52,8 +59,43 @@ public class Home_Fragment extends Fragment implements View.OnClickListener {
         viewPager.setCurrentItem(1);
     }
 
+    private void initData(){
+
+            WeatherNetworkRequest weatherNetworkRequest=new WeatherNetworkRequest();
+            weatherNetworkRequest.setRequestData("成都", new RequestDataBackListener() {
+        @Override
+        public void onFinish(String responseData) {
+            Gson gson=new Gson();
+            Weather weather=gson.fromJson(responseData,Weather.class);
+            if (weather.getReason().equals("查询成功!")){
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        tv_temperature.setText(weather.getResult().getRealtime().getTemperature()+"℃");
+                        tv_date.setText(weather.getResult().getFuture().get(0).getDate());
+                        tv_cityName.setText(weather.getResult().getCity());
+                    }
+                });
+            }else{
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(getActivity(),"更新天气失败！",Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+
+        }
+
+        @Override
+        public void onError(Exception e) {
+            Log.e("printStackTrace",""+e);
+        }
+    });
+    }
+
     private void onClick() {
-        iv_notice.setOnClickListener(this);
+
     }
 
 
@@ -174,19 +216,24 @@ public class Home_Fragment extends Fragment implements View.OnClickListener {
     }
 
     private void initView() {
-        iv_notice=getActivity().findViewById(R.id.iv_notice);
-        circlecan=getActivity().findViewById(R.id.ll_circle_can);
-        viewPager=getActivity().findViewById(R.id.vp_carousel);
+         circlecan=getActivity().findViewById(R.id.ll_circle_can);
+         viewPager=getActivity().findViewById(R.id.vp_carousel);
+         tv_temperature=getActivity().findViewById(R.id.tv_temperature);
+         tv_date=getActivity().findViewById(R.id.tv_date);
+         tv_cityName=getActivity().findViewById(R.id.tv_cityName);
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()){
-            case R.id.iv_notice:
-                Intent intent=new Intent(getActivity(), OtherActivity.class);
-                intent.putExtra("fragmentName","NotificationCenter");
-                getActivity().startActivity(intent);
-                break;
+//            case R.id.iv_notice:
+//                Intent intent=new Intent(getActivity(), OtherActivity.class);
+//                intent.putExtra("fragmentName","NotificationCenter");
+//                getActivity().startActivity(intent);
+//                break;
         }
     }
+
+
+
 }

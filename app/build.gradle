@@ -1,5 +1,6 @@
 plugins {
     id 'com.android.application'
+    id 'com.mob.sdk'//添加插件
 }
 
 android {
@@ -37,6 +38,15 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     testImplementation 'junit:junit:4.+'
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.squareup.okhttp3:okhttp:4.10.0-RC1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+}
+
+// 在MobSDK的扩展中注册SMSSDK的相关信息
+MobSDK {
+    appKey "申请Mob的appkey"
+    appSecret "申请Mob的AppSecret"
+    SMSSDK {}
 }
