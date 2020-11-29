@@ -15,6 +15,8 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        multiDexEnabled true
     }
 
     buildTypes {
@@ -37,22 +39,27 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation 'com.nepxion:zxing:1.1.1'
     testImplementation 'junit:junit:4.+'
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'com.squareup.okhttp3:okhttp:4.10.0-RC1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-    implementation 'cn.yipianfengye.android:zxing-library:2.2'
+//    implementation 'cn.yipianfengye.android:zxing-library:2.2'
 
 
 
     //扫描二维码与一维码
     implementation ('com.journeyapps:zxing-android-embedded:3.6.0'){ transitive = false }
-    implementation'com.google.zxing:core:3.3.2'
+    implementation 'com.google.zxing:core:3.3.2'
+//    androidTestImplementation 'androidx.test.ext:junit:1.1.0'
+//    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
     implementation 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.4@aar'
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.0'
     implementation 'io.reactivex.rxjava2:rxjava:2.0.6'
     implementation 'com.jakewharton.rxbinding2:rxbinding:2.0.0'
+    implementation 'com.android.support:multidex:1.0.3'
+
 }
 
 // 在MobSDK的扩展中注册SMSSDK的相关信息

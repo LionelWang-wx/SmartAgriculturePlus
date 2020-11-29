@@ -16,6 +16,6 @@ public class eApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        ApplicationContext.setInstance(this);
+        com.myapp.smartagricultureplus.ScanCode.ApplicationContext.setInstance(this);
     }
 }

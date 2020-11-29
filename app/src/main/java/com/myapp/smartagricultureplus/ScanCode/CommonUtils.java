@@ -8,7 +8,6 @@ import android.util.TypedValue;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
-
 public class CommonUtils {
 
     /**
@@ -25,7 +24,7 @@ public class CommonUtils {
     }
 
     public static int dp2px(int dp) {
-        return dp2px(ApplicationContext.getInstance(), dp);
+        return dp2px(com.myapp.smartagricultureplus.ScanCode.ApplicationContext.getInstance(), dp);
     }
 
     public static int sp2px(Context context, float spValue) {
@@ -37,7 +36,7 @@ public class CommonUtils {
         TypedArray array = context.getTheme().obtainStyledAttributes(new int[]{
                 attrId,
         });
-        int heightA = (int)array.getDimension(0, com.myapp.smartagricultureplus.ScanCode.CommonUtils.dip2px(context, 50));
+        int heightA = (int)array.getDimension(0,com.myapp.smartagricultureplus.ScanCode.CommonUtils.dip2px(context, 50));
         array.recycle();
         return heightA;
     }
