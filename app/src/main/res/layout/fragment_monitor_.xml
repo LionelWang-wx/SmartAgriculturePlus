@@ -4,55 +4,68 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragment.Monitor_Fragment"
-    android:orientation="vertical">
-
-
-    -<LinearLayout android:orientation="horizontal"
-    android:layout_height="40dp"
+    android:orientation="vertical"
+    >
+<HorizontalScrollView
     android:layout_width="match_parent"
-    android:background="#F3F2F2">
-
-    <com.myapp.smartagricultureplus.DiyView.MonitorTabView
+    android:layout_height="60dp"
+    >
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:layout_weight="1"
-        android:id="@+id/tab_monitor_all"/>
+        android:layout_gravity="center_vertical"
+        >
+        <com.myapp.smartagricultureplus.DiyView.MonitorTabView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/tab_monitor_all"
+            android:layout_marginLeft="15dp"
+            />
 
-    <com.myapp.smartagricultureplus.DiyView.MonitorTabView
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:layout_weight="1"
-        android:id="@+id/tab_monitor_to1"/>
+        <com.myapp.smartagricultureplus.DiyView.MonitorTabView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/tab_monitor_to1"
+            android:layout_marginLeft="12dp"
+            />
 
-    <com.myapp.smartagricultureplus.DiyView.MonitorTabView
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:layout_weight="1"
-        android:id="@+id/tab_monitor_to2"/>
+        <com.myapp.smartagricultureplus.DiyView.MonitorTabView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/tab_monitor_to2"
+            android:layout_marginLeft="12dp"
+            />
 
-    <com.myapp.smartagricultureplus.DiyView.MonitorTabView
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:layout_weight="1"
-        android:id="@+id/tab_monitor_to3"/>
+        <com.myapp.smartagricultureplus.DiyView.MonitorTabView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/tab_monitor_to3"
+            android:layout_marginLeft="12dp"
+            />
 
-    <com.myapp.smartagricultureplus.DiyView.MonitorTabView
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:layout_weight="1"
-        android:id="@+id/tab_monitor_to4"/>
+        <com.myapp.smartagricultureplus.DiyView.MonitorTabView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/tab_monitor_to4"
+            android:layout_marginLeft="12dp"
+            />
 
-    <com.myapp.smartagricultureplus.DiyView.MonitorTabView
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:layout_weight="1"
-        android:id="@+id/tab_monitor_to5"/>
+        <com.myapp.smartagricultureplus.DiyView.MonitorTabView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/tab_monitor_to5"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="15dp"
+            />
 
-</LinearLayout>
+    </LinearLayout>
+</HorizontalScrollView>
 
     <androidx.viewpager.widget.ViewPager
         android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:id="@+id/vp_monitor"/>
+        android:id="@+id/vp_monitor"
+        />
 
 </LinearLayout>

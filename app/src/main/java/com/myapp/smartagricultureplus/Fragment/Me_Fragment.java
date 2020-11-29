@@ -1,6 +1,9 @@
 package com.myapp.smartagricultureplus.Fragment;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -16,6 +19,7 @@ import com.google.gson.Gson;
 import com.myapp.smartagricultureplus.Object.Weather;
 import com.myapp.smartagricultureplus.R;
 import com.myapp.smartagricultureplus.interfaceJava.RequestDataBackListener;
+import com.myapp.smartagricultureplus.tool.DatabaseHelper;
 import com.myapp.smartagricultureplus.tool.WeatherNetworkRequest;
 
 import java.util.HashMap;
@@ -24,10 +28,13 @@ import cn.smssdk.EventHandler;
 import cn.smssdk.SMSSDK;
 import cn.smssdk.gui.RegisterPage;
 
+import static android.content.Context.MODE_PRIVATE;
+
 public class Me_Fragment extends Fragment implements View.OnClickListener {
     LinearLayout llt_login;
     TextView tv_backLogin,tv_userId;
-
+    public SharedPreferences sp;
+    public SharedPreferences.Editor edit;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -81,6 +88,13 @@ public class Me_Fragment extends Fragment implements View.OnClickListener {
                     // TODO 利用国家代码和手机号码进行后续的操作
                     tv_userId.setText(phone);
                     tv_backLogin.setVisibility(View.VISIBLE);
+                    sp = getActivity().getSharedPreferences("user", MODE_PRIVATE);
+                    String userId = sp.getString("userId","");
+                    if (userId==""){
+                        edit = sp.edit();
+                        edit.putString("userId",phone);
+                        edit.commit();
+                    }
                 } else{
                     // TODO 处理错误的结果
                 }

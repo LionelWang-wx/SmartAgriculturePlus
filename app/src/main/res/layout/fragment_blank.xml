@@ -75,10 +75,11 @@
     android:layout_centerInParent="true"
     app:cardCornerRadius="20dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    app:cardElevation="15dp"
+    >
 
         <androidx.viewpager.widget.ViewPager
-
             android:id="@+id/vp_carousel"
             android:layout_width="match_parent"
             android:layout_height="match_parent">

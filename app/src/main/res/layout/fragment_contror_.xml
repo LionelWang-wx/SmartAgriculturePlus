@@ -3,13 +3,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/llt_loading"
     android:background="@color/theme_background"
     tools:context=".Fragment.Contror_Fragment">
 
     <LinearLayout android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:orientation="vertical">
-
+    android:orientation="vertical"
+        >
+   <ProgressBar
+       android:id="@+id/pb_loading"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:visibility="gone"
+       />
     <androidx.recyclerview.widget.RecyclerView
         android:layout_height="match_parent"
         android:layout_width="match_parent"

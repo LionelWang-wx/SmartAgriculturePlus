@@ -13,16 +13,18 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.myapp.smartagricultureplus.Adapter.MonitorAdapter;
-import com.myapp.smartagricultureplus.Object.Monitor;
+import com.myapp.smartagricultureplus.Object.Device;
 import com.myapp.smartagricultureplus.R;
 
 import java.util.ArrayList;
 
 public class Monitor_To1_Fragment extends Fragment {
     private RecyclerView rcv_monitor_To1;
-    private ArrayList<Monitor> monitors;
-    private Monitor monitor1, monitor2, monitor3, monitor4;
-
+    private ArrayList<Device> devices;
+    int[] deviceIconTo1=new int[]{R.mipmap._monitor_img,R.mipmap._monitor_img,R.mipmap._monitor_img,R.mipmap._monitor_img,R.mipmap._monitor_img,};
+    String[] deviceNameTo1=new String[]{"温度传感器","光照传感器","土壤湿度传感器","风向风力传感器","摄像头传感器"};
+    int[] deviceBackgroundTo1=new int[]{R.mipmap.img_small_background,R.mipmap.iv_device_background,R.mipmap.img_small_background,R.mipmap.iv_device_background
+            ,R.mipmap.img_small_background};
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -42,21 +44,17 @@ public class Monitor_To1_Fragment extends Fragment {
     }
 
     private void initData() {
-        monitors = new ArrayList<>();
-        monitor1 = new Monitor(R.mipmap._monitor_img, "温湿度传感器");
-        monitors.add(monitor1);
-        monitor2 = new Monitor(R.mipmap._monitor_img, "温湿度传感器");
-        monitors.add(monitor2);
-        monitor3 = new Monitor(R.mipmap._monitor_img, "温湿度传感器");
-        monitors.add(monitor3);
-        monitor4 = new Monitor(R.mipmap._monitor_img, "温湿度传感器");
-        monitors.add(monitor4);
+        devices = new ArrayList<>();
+        for (int i=0;i<deviceIconTo1.length;i++){
+            Device device=new Device(deviceIconTo1[i],deviceNameTo1[i],deviceBackgroundTo1[i]);
+            devices.add(device);
+        }
     }
 
     private void initAdapter() {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(),2,LinearLayoutManager.VERTICAL,false);
         rcv_monitor_To1.setLayoutManager(gridLayoutManager);
-        MonitorAdapter monitorAdapter = new MonitorAdapter(getActivity(), monitors);
+        MonitorAdapter monitorAdapter = new MonitorAdapter(getActivity(), devices);
         rcv_monitor_To1.setAdapter(monitorAdapter);
     }
 }

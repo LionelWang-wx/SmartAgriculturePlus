@@ -204,10 +204,10 @@ public class Monitor_Fragment extends Fragment {
         monitorTabViews.add(tab_monitor_to5);
 
         tab_monitor_all.setText("所有");
-        tab_monitor_to1.setText("温湿度");
-        tab_monitor_to2.setText("光照");
-        tab_monitor_to3.setText("监控");
-        tab_monitor_to4.setText("传感器");
+        tab_monitor_to1.setText("传感器");
+        tab_monitor_to2.setText("温湿度");
+        tab_monitor_to3.setText("照明设备");
+        tab_monitor_to4.setText("监控设备");
         tab_monitor_to5.setText("其他");
 
 
