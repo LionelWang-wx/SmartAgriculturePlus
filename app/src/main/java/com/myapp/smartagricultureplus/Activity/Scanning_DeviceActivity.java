@@ -7,18 +7,30 @@ import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import android.Manifest;
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.zxing.ResultPoint;
+import com.journeyapps.barcodescanner.BarcodeCallback;
+import com.journeyapps.barcodescanner.BarcodeResult;
+import com.journeyapps.barcodescanner.CompoundBarcodeView;
 import com.myapp.smartagricultureplus.R;
+import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.uuzuche.lib_zxing.activity.CodeUtils;
 import com.uuzuche.lib_zxing.activity.ZXingLibrary;
+
+import java.util.List;
 
 public class Scanning_DeviceActivity extends AppCompatActivity {
 
@@ -26,20 +38,80 @@ public class Scanning_DeviceActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_scanning__device);
 
-        //隐藏系统默认的标题
-        ActionBar actionBar = getSupportActionBar();
-        if(actionBar!=null){
-            actionBar.hide();
-        }
 
         //初始化相机权限
         ZXingLibrary.initDisplayOpinion(this);
         initView();
         initData();
 
+        new RxPermissions(this).request(Manifest.permission.CAMERA)
+                .subscribe(granted ->
+                {
+                    if (granted)
+                    {
+
+                    }
+                });
+
+
     }
+
+
+    public static void startActivity(Activity context)
+    {
+        new RxPermissions(context).request(Manifest.permission.CAMERA)
+                .subscribe(granted ->
+                {
+                    if (granted)
+                    {
+                        Intent intent = new Intent(context,Scanning_DeviceActivity.class);
+                        context.startActivity(intent);
+                    }
+
+                });
+    }
+    public static void startActivity(Activity context,int requestCode)
+    {
+        new RxPermissions(context).request(Manifest.permission.CAMERA)
+                .subscribe(granted ->
+                {
+                    if (granted)
+                    {
+                        Intent intent = new Intent(context,Scanning_DeviceActivity.class);
+                        intent.putExtra("type",1);
+                        context.startActivity(intent);
+                    }
+
+                });
+    }
+
+    /**
+     * 扩展闪光灯 边框 扫码线 去除红线
+     */
+    //获取CompoundBarcodeView类
+    private CompoundBarcodeView barcodeView;
+    private ImageView flashlight;
+    private int mType;
+    private boolean isLightOn = false;
+
+    private BarcodeCallback callback = new BarcodeCallback() {
+        @Override
+        public void barcodeResult(BarcodeResult result) {
+            if (result != null)
+            {
+                //编写业务逻辑
+                Log.d("BarcodeCallbacksys",result.getText());
+            }
+        }
+
+        @Override
+        public void possibleResultPoints(List<ResultPoint> resultPoints) {
+
+        }
+    };
 
     private void initData()
     {
@@ -69,9 +141,64 @@ public class Scanning_DeviceActivity extends AppCompatActivity {
 
     private void initView()
     {
-        card_sm = findViewById(R.id.card_sm);
+        barcodeView = findViewById(R.id.barcode_scanner);
+        flashlight = findViewById(R.id.flashlight);
+        barcodeView.decodeContinuous(callback);
+        Intent intent = new Intent();
+        barcodeView.initializeFromIntent(intent);
+        mType = getIntent().getIntExtra("Type",0);
+        flashlight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (isLightOn)
+                {
+                    //没有打开的手电筒
+                    barcodeView.setTorchOff();
+                    flashlight.setImageResource(R.mipmap._home_img);
+                }else
+                {
+                    //已经打开的手电筒
+                    barcodeView.setTorchOff();
+                    flashlight.setImageResource(R.mipmap.home_img);
+                }
+            }
+        });
+        // 如果没有闪光灯的功能就会去掉闪光灯
+        if (!hasFlash())
+        {
+            flashlight.setVisibility(View.GONE);
+        }
+    }
+    //判断手机闪光灯的功能
+    private boolean hasFlash() {
+        return getApplicationContext().getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        return barcodeView.onKeyDown(keyCode,event) || super.onKeyDown(keyCode,event);
+
+    }
 
     //获取手机相机权限
     @Override
@@ -106,4 +233,8 @@ public class Scanning_DeviceActivity extends AppCompatActivity {
             }
         }
     }
+
+
+
+
 }

@@ -43,6 +43,16 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation 'cn.yipianfengye.android:zxing-library:2.2'
+
+
+
+    //扫描二维码与一维码
+    implementation ('com.journeyapps:zxing-android-embedded:3.6.0'){ transitive = false }
+    implementation'com.google.zxing:core:3.3.2'
+    implementation 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.4@aar'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.0'
+    implementation 'io.reactivex.rxjava2:rxjava:2.0.6'
+    implementation 'com.jakewharton.rxbinding2:rxbinding:2.0.0'
 }
 
 // 在MobSDK的扩展中注册SMSSDK的相关信息

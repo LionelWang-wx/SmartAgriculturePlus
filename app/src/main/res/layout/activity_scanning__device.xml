@@ -2,27 +2,47 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_gravity="center"
-    android:gravity="center"
+    android:orientation="vertical"
     android:background="@mipmap/img_small_background">
 
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card_sm"
+
+<com.journeyapps.barcodescanner.CompoundBarcodeView
+    android:id="@+id/barcode_scanner"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="12dp">
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="70dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/flashlight"
+            android:layout_width="60dp"
+            android:layout_height="60dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="55sp"
+            android:layout_marginTop="10dp"
+            android:text="手电筒"
+            android:textColor="#fff"
+            android:textSize="14sp"/>
 
-            android:gravity="center"
-            android:padding="8dp"
-            android:text="扫描二维码"/>
+    </LinearLayout>
+    </RelativeLayout>
 
-    </androidx.cardview.widget.CardView>
+
+
+</com.journeyapps.barcodescanner.CompoundBarcodeView>
 
 </LinearLayout>
