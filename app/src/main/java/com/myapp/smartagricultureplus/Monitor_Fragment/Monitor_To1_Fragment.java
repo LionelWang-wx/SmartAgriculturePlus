@@ -21,7 +21,7 @@ import java.util.ArrayList;
 public class Monitor_To1_Fragment extends Fragment {
     private RecyclerView rcv_monitor_To1;
     private ArrayList<Device> devices;
-    int[] deviceIconTo1=new int[]{R.mipmap._monitor_img,R.mipmap._monitor_img,R.mipmap._monitor_img,R.mipmap._monitor_img,R.mipmap._monitor_img,};
+    int[] deviceIconTo1=new int[]{R.mipmap.img_temperature,R.mipmap.img_brightnesssensor,R.mipmap.img_floodsensor,R.mipmap._monitor_img,R.mipmap.img_camera,};
     String[] deviceNameTo1=new String[]{"温度传感器","光照传感器","土壤湿度传感器","风向风力传感器","摄像头传感器"};
     int[] deviceBackgroundTo1=new int[]{R.mipmap.img_small_background,R.mipmap.iv_device_background,R.mipmap.img_small_background,R.mipmap.iv_device_background
             ,R.mipmap.img_small_background};

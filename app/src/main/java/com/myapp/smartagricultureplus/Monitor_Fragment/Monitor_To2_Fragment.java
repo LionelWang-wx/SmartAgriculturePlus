@@ -22,7 +22,7 @@ import java.util.ArrayList;
 public class Monitor_To2_Fragment extends Fragment {
     private RecyclerView rcv_monitor_To2;
     private ArrayList<Device> devices;
-    int[] deviceIconTo2=new int[]{R.mipmap._monitor_img,R.mipmap._monitor_img,R.mipmap._monitor_img,R.mipmap._monitor_img};
+    int[] deviceIconTo2=new int[]{R.mipmap.img_fan,R.mipmap.img_floorfan,R.mipmap.ywcgq,R.mipmap.img_airconditioning};
     String[] deviceNameTo2=new String[]{"智能负离子风扇","吸顶式风扇灯","WiFi水浸报警器","双模智能空调"};
     int[] deviceBackgroundTo2=new int[]{R.mipmap.img_small_background,R.mipmap.iv_device_background,R.mipmap.img_small_background,R.mipmap.iv_device_background};
     @Override

@@ -21,7 +21,7 @@ import java.util.ArrayList;
 public class Monitor_To5_Fragment extends Fragment {
     private RecyclerView rcv_monitor_To5;
     private ArrayList<Device> devices;
-    int[] deviceIconTo5=new int[]{R.mipmap._monitor_img,R.mipmap._monitor_img};
+    int[] deviceIconTo5=new int[]{R.mipmap.img_hvac,R.mipmap.img_irrigator};
     String[] deviceNameTo5=new String[]{"双模智能电热水器","WiFi门窗磁感应器"};
     int[] deviceBackgroundTo5=new int[]{R.mipmap.img_small_background,R.mipmap.iv_device_background};
     @Override
