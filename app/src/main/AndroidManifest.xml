@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.myapp.smartagricultureplus">
 
-    //扫描二维码
+<!--    //扫描二维码-->
     <uses-permission android:name="android.permission.INTERNET" />
     <!-- 获取手机相机的权限 -->
     <uses-permission android:name="android.permission.CAMERA" />
@@ -70,22 +70,22 @@
 
     <uses-permission
         android:name="android.permission.ACCESS_WIFI_STATE" />
-    允许访问WiFi网络状态信息（必须）
+<!--    允许访问WiFi网络状态信息（必须）-->
     <uses-permission
         android:name="android.permission.READ_PHONE_STATE" />
-    允许读取手机状态（必须）
+<!--    允许读取手机状态（必须）-->
     <uses-permission
         android:name="android.permission.ACCESS_NETWORK_STATE" />
-    允许访问网络状态（必须）
+<!--    允许访问网络状态（必须）-->
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    允许写手机存储（必须）
+<!--    允许写手机存储（必须）-->
     <uses-permission
         android:name="android.permission.RECEIVE_SMS" />
-    GUI自动填充验证码功能（非必须）
+<!--    GUI自动填充验证码功能（非必须）-->
     <uses-permission
         android:name="android.permission.READ_SMS" />
-    从短信中读取验证码接口（非必须）
+<!--    从短信中读取验证码接口（非必须）-->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"

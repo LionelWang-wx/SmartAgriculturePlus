@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -284,37 +285,58 @@
     </LinearLayout>
 </LinearLayout>
 
-<View
-    android:layout_width="match_parent"
-    android:background="@color/second_theme"
-    android:layout_height="1px"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:text="------------- 一键控制 -------------"
-            android:layout_gravity="center"
-            android:textColor="@color/lightgray"/>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    >
+    <View
+        android:layout_width="0dp"
+        android:background="@color/second_theme"
+        android:layout_weight="1"
+        android:layout_height="1dp"/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text="一键控制"
+        android:layout_weight="1"
+        android:gravity="center"
+        />
+    <View
+        android:layout_width="0dp"
+        android:background="@color/second_theme"
+        android:layout_weight="1"
+        android:layout_height="1dp"/>
+</LinearLayout>
+
 
   <!--智能场景-->
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"
+    android:layout_marginTop="8dp"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="center"
-        android:paddingTop="5dp"
         android:paddingBottom="10dp"
         android:orientation="horizontal">
 
 
         <androidx.cardview.widget.CardView
-            android:layout_width="130dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
             android:layout_height="150dp"
             app:cardCornerRadius="22dp"
             app:cardElevation="1dp"
@@ -323,17 +345,16 @@
             android:layout_marginBottom="2dp"
            >
     <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:layout_gravity="center"
-        android:layout_marginBottom="5dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+        >
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
-        android:layout_margin="8dp"
         android:textSize="20sp"
         android:text="AI智慧托管"/>
     <TextView
@@ -353,22 +374,24 @@
 
 
         <androidx.cardview.widget.CardView
-            android:layout_width="130dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
             android:layout_height="150dp"
             android:layout_marginRight="10dp"
             app:cardCornerRadius="22dp"
-            app:cardElevation="1dp">
+            app:cardElevation="1dp"
+            >
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                >
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
-                    android:layout_margin="8dp"
                     android:textSize="20sp"
                     android:text="大雨"/>
                 <TextView
@@ -388,14 +411,15 @@
 
 
         <androidx.cardview.widget.CardView
-            android:layout_width="130dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
             android:layout_height="150dp"
             app:cardCornerRadius="22dp"
             app:cardElevation="1dp"
             android:layout_gravity="center">
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:orientation="vertical">
 
@@ -403,7 +427,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
-                    android:layout_margin="8dp"
                     android:textSize="20sp"
                     android:text="气温过高"/>
                 <TextView
@@ -440,7 +463,8 @@
 
 
         <androidx.cardview.widget.CardView
-            android:layout_width="130dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
             android:layout_height="150dp"
             app:cardCornerRadius="22dp"
             android:layout_marginRight="10dp"
@@ -448,23 +472,24 @@
             android:layout_marginBottom="2dp"
             app:cardElevation="1dp">
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                >
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
-                    android:layout_margin="8dp"
                     android:textSize="20sp"
                     android:text="大雾"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:text="3个设备"/>
+                    android:text="3个设备"
+                    />
                 <ImageView
                     android:layout_width="36dp"
                     android:layout_height="36dp"
@@ -477,7 +502,8 @@
 
 
         <androidx.cardview.widget.CardView
-            android:layout_width="130dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
             android:layout_height="150dp"
             app:cardCornerRadius="22dp"
             android:layout_marginRight="10dp"
@@ -485,8 +511,8 @@
             android:layout_marginBottom="2dp"
             app:cardElevation="2dp">
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:orientation="vertical">
 
@@ -514,7 +540,8 @@
 
 
         <androidx.cardview.widget.CardView
-            android:layout_width="130dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
             android:layout_height="150dp"
             app:cardCornerRadius="22dp"
             android:layout_gravity="center"
@@ -522,8 +549,8 @@
             android:layout_marginBottom="2dp"
             app:cardElevation="1dp">
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:orientation="vertical">
 
@@ -531,7 +558,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
-                    android:layout_margin="8dp"
                     android:textSize="20sp"
                     android:text="水位过低"/>
                 <TextView
@@ -557,4 +583,4 @@
 
 
     </LinearLayout>
-</FrameLayout>
+</androidx.core.widget.NestedScrollView>
