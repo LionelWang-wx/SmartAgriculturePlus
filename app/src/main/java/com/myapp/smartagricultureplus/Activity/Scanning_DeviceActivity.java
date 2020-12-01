@@ -12,11 +12,14 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.zxing.ResultPoint;
 import com.journeyapps.barcodescanner.BarcodeCallback;
 import com.journeyapps.barcodescanner.BarcodeResult;
 import com.journeyapps.barcodescanner.CompoundBarcodeView;
+import com.myapp.smartagricultureplus.Fragment.Me_Fragment;
+import com.myapp.smartagricultureplus.Fragment.Monitor_Fragment;
 import com.myapp.smartagricultureplus.R;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 //import com.uuzuche.lib_zxing.activity.ZXingLibrary;
@@ -63,6 +66,9 @@ public class Scanning_DeviceActivity extends AppCompatActivity {
             if (result != null) {
                 //这里写业务逻辑
                 Log.d("wewq", result.getText());
+                Toast.makeText(Scanning_DeviceActivity.this, result.getText(),Toast.LENGTH_SHORT).show();
+                initSuccess();
+                finish();
             }
         }
 
@@ -70,6 +76,30 @@ public class Scanning_DeviceActivity extends AppCompatActivity {
         public void possibleResultPoints(List<ResultPoint> resultPoints) {
         }
     };
+
+    private void initSuccess()
+    {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent intent = new Intent(Scanning_DeviceActivity.this, MainActivity.class);
+                        startActivity(intent);
+                    }
+                });
+
+            }
+        }).start();
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
