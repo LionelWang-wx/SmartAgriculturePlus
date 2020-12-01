@@ -12,7 +12,6 @@
         android:background="@mipmap/ic_launcher"
         />
     <Button
-        android:background="@color/button"
         android:id="@+id/btn_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
