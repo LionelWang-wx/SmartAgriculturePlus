@@ -1,7 +1,9 @@
 package com.myapp.smartagricultureplus.Fragment;
 
+import android.app.AlertDialog;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -14,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.myapp.smartagricultureplus.Object.Weather;
@@ -30,7 +33,7 @@ import cn.smssdk.gui.RegisterPage;
 
 import static android.content.Context.MODE_PRIVATE;
 
-public class Me_Fragment extends Fragment implements View.OnClickListener {
+public class Me_Fragment extends BaseFragment implements View.OnClickListener {
     LinearLayout llt_login,ll_feedback;
     TextView tv_backLogin,tv_userId;
     public SharedPreferences sp;
@@ -52,15 +55,22 @@ public class Me_Fragment extends Fragment implements View.OnClickListener {
 
     private void onClick() {
         llt_login.setOnClickListener(this);
+        tv_backLogin.setOnClickListener(this);
     }
 
     private void initData() {
-
+        sp = getActivity().getSharedPreferences("user", MODE_PRIVATE);
+        String userId=sp.getString("userId","");
+        if (userId==""){
+            tv_userId.setText("立即登录");
+        }else {
+            tv_userId.setText(userId);
+        }
     }
 
     private void initView() {
         ll_feedback=getActivity().findViewById(R.id.ll_feedback);
-        tv_userId=getActivity().findViewById(R.id.tv_userId);
+         tv_userId=getActivity().findViewById(R.id.tv_userId);
          llt_login=getActivity().findViewById(R.id.llt_login);
          tv_backLogin=getActivity().findViewById(R.id.tv_backLogin);
     }
@@ -69,7 +79,36 @@ public class Me_Fragment extends Fragment implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.llt_login:
-                sendCode(getActivity());
+                sp = getActivity().getSharedPreferences("user", MODE_PRIVATE);
+                String userId=sp.getString("userId","");
+                if (userId==""){
+                    sendCode(getActivity());
+                }else {
+                    tv_userId.setText(userId);
+                    tv_backLogin.setVisibility(View.VISIBLE);
+                }
+                break;
+            case R.id.tv_backLogin:
+                AlertDialog.Builder dialog=new AlertDialog.Builder(getActivity());
+                dialog.setTitle("即将退出登录？");
+                dialog.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        sp = getActivity().getSharedPreferences("user", MODE_PRIVATE);
+                        edit = sp.edit();
+                        edit.putString("userId","");
+                        edit.commit();
+                        tv_userId.setText("立即登录");
+                        tv_backLogin.setVisibility(View.INVISIBLE);
+                    }
+                });
+                dialog.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(getActivity(),"取消退出登录",Toast.LENGTH_SHORT).show();
+                    }
+                });
+                dialog.show();
                 break;
             case R.id.ll_feedback:
 
