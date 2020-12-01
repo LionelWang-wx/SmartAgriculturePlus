@@ -31,7 +31,7 @@ import cn.smssdk.gui.RegisterPage;
 import static android.content.Context.MODE_PRIVATE;
 
 public class Me_Fragment extends Fragment implements View.OnClickListener {
-    LinearLayout llt_login;
+    LinearLayout llt_login,ll_feedback;
     TextView tv_backLogin,tv_userId;
     public SharedPreferences sp;
     public SharedPreferences.Editor edit;
@@ -59,6 +59,7 @@ public class Me_Fragment extends Fragment implements View.OnClickListener {
     }
 
     private void initView() {
+        ll_feedback=getActivity().findViewById(R.id.ll_feedback);
         tv_userId=getActivity().findViewById(R.id.tv_userId);
          llt_login=getActivity().findViewById(R.id.llt_login);
          tv_backLogin=getActivity().findViewById(R.id.tv_backLogin);
@@ -69,6 +70,9 @@ public class Me_Fragment extends Fragment implements View.OnClickListener {
         switch (view.getId()){
             case R.id.llt_login:
                 sendCode(getActivity());
+                break;
+            case R.id.ll_feedback:
+
                 break;
         }
     }
