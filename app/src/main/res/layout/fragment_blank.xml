@@ -159,6 +159,7 @@
     android:orientation="horizontal">
 
     <LinearLayout
+
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -166,13 +167,14 @@
         android:orientation="vertical">
 
         <androidx.cardview.widget.CardView
-            android:layout_width="75dp"
-            android:layout_height="75dp"
+            android:id="@+id/cv_home_headlight"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
             android:layout_gravity="center"
             app:cardCornerRadius="38dp">
             <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_gravity="center"
                 android:src="@mipmap/img_fast_headlight_off">
             </de.hdodenhof.circleimageview.CircleImageView>
@@ -199,13 +201,14 @@
         android:orientation="vertical">
 
         <androidx.cardview.widget.CardView
-            android:layout_width="75dp"
-            android:layout_height="75dp"
+            android:id="@+id/cv_home_fast_fan"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
             android:layout_gravity="center"
             app:cardCornerRadius="38dp">
             <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_gravity="center"
                 android:src="@mipmap/img_fast_fan_open">
             </de.hdodenhof.circleimageview.CircleImageView>
@@ -230,13 +233,14 @@
         android:orientation="vertical">
 
         <androidx.cardview.widget.CardView
-            android:layout_width="75dp"
-            android:layout_height="75dp"
+            android:id="@+id/cv_home_quick_sluice"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
             android:layout_gravity="center"
             app:cardCornerRadius="38dp">
             <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_gravity="center"
                 android:src="@mipmap/img_quick_sluice_open"/>
         </androidx.cardview.widget.CardView>
@@ -261,13 +265,14 @@
         android:orientation="vertical">
 
         <androidx.cardview.widget.CardView
-            android:layout_width="75dp"
-            android:layout_height="75dp"
+            android:id="@+id/cv_home_quick_temperature"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
             android:layout_gravity="center"
             app:cardCornerRadius="38dp">
             <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_gravity="center"
                 android:src="@mipmap/img_quick_temperature_open">
             </de.hdodenhof.circleimageview.CircleImageView>
@@ -280,7 +285,7 @@
             android:layout_gravity="center"
             android:textColor="#fff"
             android:textStyle="bold"
-            android:text="大棚顶灯"/>
+            android:text="温湿度"/>
 
     </LinearLayout>
 </LinearLayout>
@@ -298,7 +303,7 @@
         android:layout_width="0dp"
         android:background="@color/second_theme"
         android:layout_weight="1"
-        android:layout_height="1dp"/>
+        android:layout_height="1px"/>
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -311,7 +316,7 @@
         android:layout_width="0dp"
         android:background="@color/second_theme"
         android:layout_weight="1"
-        android:layout_height="1dp"/>
+        android:layout_height="1px"/>
 </LinearLayout>
 
 
@@ -335,6 +340,7 @@
 
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cv_smart_hosting"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="150dp"
@@ -344,6 +350,13 @@
             android:layout_marginTop="2dp"
             android:layout_marginBottom="2dp"
            >
+
+            <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.55"
+            android:background="@mipmap/img_scene_heavy_rain"/>
+
     <LinearLayout
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -351,20 +364,27 @@
     android:orientation="vertical"
         >
 
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/civ_smart_hosting"
+            android:layout_width="5dp"
+            android:layout_height="5dp"
+            android:src="@color/second_theme"
+            android:layout_gravity="right"/>
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:text="AI智慧托管"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
         android:text="23个设备"/>
     <ImageView
-        android:layout_width="36dp"
-        android:layout_height="36dp"
+        android:id="@+id/iv_smart_hosting"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_marginTop="30dp"
         android:layout_marginLeft="10dp"
         android:src="@mipmap/img_scene_off"/>
@@ -374,34 +394,42 @@
 
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cv_heavy_rain"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="150dp"
             android:layout_marginRight="10dp"
             app:cardCornerRadius="22dp"
-            app:cardElevation="1dp"
-            >
+            app:cardElevation="1dp">
+
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:orientation="vertical"
                 >
-
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/civ_heavy_rain"
+                    android:layout_width="5dp"
+                    android:layout_height="5dp"
+                    android:src="@color/second_theme"
+                    android:layout_gravity="right"/>
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
-                    android:textSize="20sp"
+                    android:textSize="16sp"
                     android:text="大雨"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
                     android:text="13个设备"/>
                 <ImageView
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
+                    android:id="@+id/iv_heavy_rain"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_marginTop="30dp"
                     android:layout_marginLeft="10dp"
                     android:src="@mipmap/img_scene_off"/>
@@ -411,6 +439,7 @@
 
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cv_high_temperature"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="150dp"
@@ -423,20 +452,27 @@
                 android:layout_gravity="center"
                 android:orientation="vertical">
 
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/civ_high_temperature"
+                    android:layout_width="5dp"
+                    android:layout_height="5dp"
+                    android:src="@color/second_theme"
+                    android:layout_gravity="right"/>
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
-                    android:textSize="20sp"
+                    android:textSize="16sp"
                     android:text="气温过高"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
                     android:text="5个设备"/>
                 <ImageView
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
+                    android:id="@+id/iv_high_temperature"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_marginTop="30dp"
                     android:layout_marginLeft="10dp"
                     android:src="@mipmap/img_scene_off"/>
@@ -463,6 +499,7 @@
 
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cv_heavy_fog"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="150dp"
@@ -478,21 +515,28 @@
                 android:orientation="vertical"
                 >
 
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/civ_heavy_fog"
+                    android:layout_width="5dp"
+                    android:layout_height="5dp"
+                    android:src="@color/second_theme"
+                    android:layout_gravity="right"/>
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
-                    android:textSize="20sp"
+                    android:textSize="16sp"
                     android:text="大雾"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
                     android:text="3个设备"
                     />
                 <ImageView
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
+                    android:id="@+id/iv_heavy_fog"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_marginTop="30dp"
                     android:layout_marginLeft="10dp"
                     android:src="@mipmap/img_scene_off"/>
@@ -502,12 +546,12 @@
 
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cv_low_temperature"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="150dp"
             app:cardCornerRadius="22dp"
             android:layout_marginRight="10dp"
-            android:layout_marginTop="2dp"
             android:layout_marginBottom="2dp"
             app:cardElevation="2dp">
             <LinearLayout
@@ -516,21 +560,28 @@
                 android:layout_gravity="center"
                 android:orientation="vertical">
 
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/civ_low_temperature"
+                    android:layout_width="5dp"
+                    android:layout_height="5dp"
+                    android:src="@color/second_theme"
+                    android:layout_gravity="right"/>
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
+                    android:text="气温过低"
                     android:textColor="@color/black"
-                    android:layout_margin="8dp"
-                    android:textSize="20sp"
-                    android:text="气温过低"/>
+                    android:textSize="16sp" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
                     android:text="9个设备"/>
                 <ImageView
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
+                    android:id="@+id/iv_low_temperature"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_marginTop="30dp"
                     android:layout_marginLeft="10dp"
                     android:src="@mipmap/img_scene_off"/>
@@ -540,6 +591,7 @@
 
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cv_low_water_level"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="150dp"
@@ -554,20 +606,27 @@
                 android:layout_gravity="center"
                 android:orientation="vertical">
 
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/civ_low_water_level"
+                    android:layout_width="5dp"
+                    android:layout_height="5dp"
+                    android:src="@color/second_theme"
+                    android:layout_gravity="right"/>
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
-                    android:textSize="20sp"
+                    android:textSize="16sp"
                     android:text="水位过低"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
                     android:text="2个设备"/>
                 <ImageView
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
+                    android:id="@+id/iv_low_water_level"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_marginTop="30dp"
                     android:layout_marginLeft="10dp"
                     android:src="@mipmap/img_scene_off"/>

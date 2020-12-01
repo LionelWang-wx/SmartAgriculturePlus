@@ -13,4 +13,5 @@
     <color name="theme_background">#f8f8f8</color>
     <color name="background">#ffffff</color>
     <color name="second_theme">#3772f8</color>
+    <color name="theme_green">#1afa29</color>
 </resources>

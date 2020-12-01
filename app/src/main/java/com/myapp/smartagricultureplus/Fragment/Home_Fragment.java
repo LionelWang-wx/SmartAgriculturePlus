@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
@@ -12,6 +13,7 @@ import androidx.viewpager.widget.ViewPager;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,6 +31,8 @@ import com.myapp.smartagricultureplus.tool.WeatherNetworkRequest;
 
 import java.util.ArrayList;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 
 public class Home_Fragment extends Fragment implements View.OnClickListener {
     //轮播图片
@@ -39,9 +43,63 @@ public class Home_Fragment extends Fragment implements View.OnClickListener {
     ViewPager viewPager;
     private ArrayList<ImageView> mdots=new ArrayList<>();
     TextView tv_temperature,tv_date,tv_cityName;
+
+    /**
+     *  智慧场景
+     */
+    //智慧托管
+    //判断
+    boolean flag1 = true;
+    private CardView cv_smart_hosting;
+    private CircleImageView civ_smart_hosting;
+    private ImageView iv_smart_hosting;
+
+    //大雨
+    //判断
+    boolean flag2 = true;
+    private ImageView iv_heavy_rain;
+    private CardView  cv_heavy_rain;
+    private CircleImageView civ_heavy_rain;
+
+    //气温过高
+    //判断
+    boolean flag3 = true;
+    private ImageView iv_high_temperature;
+    private CircleImageView cvi_high_temperature;
+    private CardView cv_high_temperature;
+
+    //大雾
+    //判断
+    boolean flag4 = true;
+    private ImageView iv_heavy_fog;
+    private CircleImageView civ_heavy_fog;
+    private CardView cv_heavy_fog;
+
+    //气温过低
+    //判断
+    boolean flag5 = true;
+    private ImageView iv_low_temperature;
+    private CardView cv_low_temperature;
+    private CircleImageView civ__low_temperature;
+
+    //水位过低
+    //判断
+    boolean flag6 = true;
+    private ImageView iv_low_water_level;
+    private CardView cv_low_water_level;
+    private CircleImageView civ_low_water_level;
+
+    /**
+     * 快捷键
+     */
+    private CardView
+            cv_home_headlight,//大灯
+            cv_home_fast_fan,//排风扇
+            cv_home_quick_sluice,//水闸
+            cv_home_quick_temperature;//温湿度
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_blank, container, false);
 
 
@@ -97,7 +155,6 @@ public class Home_Fragment extends Fragment implements View.OnClickListener {
     private void onClick() {
 
     }
-
 
     private void initViewPager() {
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -221,6 +278,71 @@ public class Home_Fragment extends Fragment implements View.OnClickListener {
          tv_temperature=getActivity().findViewById(R.id.tv_temperature);
          tv_date=getActivity().findViewById(R.id.tv_date);
          tv_cityName=getActivity().findViewById(R.id.tv_cityName);
+
+        /**
+         * 智慧场景
+         */
+        //智慧托管
+        cv_smart_hosting = getActivity().findViewById(R.id.cv_smart_hosting);
+        civ_smart_hosting = getActivity().findViewById(R.id.civ_smart_hosting);
+        iv_smart_hosting = getActivity().findViewById(R.id.iv_smart_hosting);
+        cv_smart_hosting.setOnClickListener(this);
+        civ_smart_hosting.setOnClickListener(this);
+        iv_smart_hosting.setOnClickListener(this);
+
+        //大雨
+        iv_heavy_rain =getActivity().findViewById(R.id.iv_heavy_rain);
+        cv_heavy_rain =getActivity().findViewById(R.id.cv_heavy_rain);
+        civ_heavy_rain =getActivity().findViewById(R.id.civ_heavy_rain);
+        iv_heavy_rain.setOnClickListener(this);
+        cv_heavy_rain.setOnClickListener(this);
+        civ_heavy_rain.setOnClickListener(this);
+
+        //气温过高
+        iv_high_temperature =getActivity().findViewById(R.id.iv_high_temperature);
+        cvi_high_temperature =getActivity().findViewById(R.id.civ_high_temperature);
+        cv_high_temperature =getActivity().findViewById(R.id.cv_high_temperature);
+        iv_high_temperature.setOnClickListener(this);
+        cvi_high_temperature.setOnClickListener(this);
+        cv_high_temperature.setOnClickListener(this);
+
+        //大雾
+        iv_heavy_fog =getActivity().findViewById(R.id.iv_heavy_fog);
+        civ_heavy_fog =getActivity().findViewById(R.id.civ_heavy_fog);
+        cv_heavy_fog =getActivity().findViewById(R.id.cv_heavy_fog);
+        iv_heavy_fog.setOnClickListener(this);
+        civ_heavy_fog.setOnClickListener(this);
+        cv_heavy_fog.setOnClickListener(this);
+
+        //气温过低
+        iv_low_temperature =getActivity().findViewById(R.id.iv_low_temperature);
+        cv_low_temperature =getActivity().findViewById(R.id.cv_low_temperature);
+        civ__low_temperature =getActivity().findViewById(R.id.civ_low_temperature);
+        iv_low_temperature.setOnClickListener(this);
+        cv_low_temperature.setOnClickListener(this);
+        civ__low_temperature.setOnClickListener(this);
+
+        //水位过低
+        iv_low_water_level  =getActivity().findViewById(R.id.iv_low_water_level);
+        cv_low_water_level  =getActivity().findViewById(R.id.cv_low_water_level);
+        civ_low_water_level  =getActivity().findViewById(R.id.civ_low_water_level);
+        iv_low_water_level.setOnClickListener(this);
+        cv_low_water_level.setOnClickListener(this);
+        civ_low_water_level.setOnClickListener(this);
+
+
+        /**
+         * 快捷键
+         */
+        cv_home_headlight = getActivity().findViewById(R.id.cv_home_headlight);//大灯
+        cv_home_fast_fan = getActivity().findViewById(R.id.cv_home_fast_fan);//排风扇
+        cv_home_quick_sluice = getActivity().findViewById(R.id.cv_home_quick_sluice);//水闸
+        cv_home_quick_temperature = getActivity().findViewById(R.id.cv_home_quick_temperature);//温湿度
+
+        cv_home_headlight.setOnClickListener(this);
+        cv_home_fast_fan.setOnClickListener(this);
+        cv_home_quick_sluice.setOnClickListener(this);
+        cv_home_quick_temperature.setOnClickListener(this);
     }
 
     @Override
@@ -231,9 +353,109 @@ public class Home_Fragment extends Fragment implements View.OnClickListener {
 //                intent.putExtra("fragmentName","NotificationCenter");
 //                getActivity().startActivity(intent);
 //                break;
+
+            case R.id.iv_smart_hosting://智能托管
+                //开
+                if (flag1 == true)
+                {
+                    civ_smart_hosting.setImageResource(R.color.theme_green);
+                    iv_smart_hosting.setImageResource(R.mipmap.img_scene_open);
+                    flag1 = false;
+                }else if (flag1 == false)
+                {
+                    civ_smart_hosting.setImageResource(R.color.second_theme);
+                    iv_smart_hosting.setImageResource(R.mipmap.img_scene_off);
+                    flag1 = true;
+                }
+                break;
+
+            case R.id.iv_heavy_rain://大雨
+                //开
+                if (flag2 == true)
+                {
+                    civ_heavy_rain.setImageResource(R.color.theme_green);
+                    iv_heavy_rain.setImageResource(R.mipmap.img_scene_open);
+                    flag2 = false;
+                }else if (flag2 == false)
+                {
+                    civ_heavy_rain.setImageResource(R.color.second_theme);
+                    iv_heavy_rain.setImageResource(R.mipmap.img_scene_off);
+                    flag2 = true;
+                }
+                break;
+
+            case R.id.iv_high_temperature://气温过高
+                //开
+                if (flag3 == true)
+                {
+                    cvi_high_temperature.setImageResource(R.color.theme_green);
+                    iv_high_temperature.setImageResource(R.mipmap.img_scene_open);
+                    flag3 = false;
+                }else if (flag3 == false)
+                {
+                    cvi_high_temperature.setImageResource(R.color.second_theme);
+                    iv_high_temperature.setImageResource(R.mipmap.img_scene_off);
+                    flag3 = true;
+                }
+                break;
+
+            case R.id.iv_heavy_fog://大雾
+                //开
+                if (flag4 == true)
+                {
+                    civ_heavy_fog.setImageResource(R.color.theme_green);
+                    iv_heavy_fog.setImageResource(R.mipmap.img_scene_open);
+                    flag4 = false;
+                }else if (flag4 == false)
+                {
+                    civ_heavy_fog.setImageResource(R.color.second_theme);
+                    iv_heavy_fog.setImageResource(R.mipmap.img_scene_off);
+                    flag4 = true;
+                }
+                break;
+
+            case R.id.iv_low_temperature://气温过低
+                //开
+                if (flag5 == true)
+                {
+                    civ__low_temperature.setImageResource(R.color.theme_green);
+                    iv_low_temperature.setImageResource(R.mipmap.img_scene_open);
+                    flag5 = false;
+                }else if (flag5 == false)
+                {
+                    civ__low_temperature.setImageResource(R.color.second_theme);
+                    iv_low_temperature.setImageResource(R.mipmap.img_scene_off);
+                    flag5 = true;
+                }
+                break;
+
+            case R.id.iv_low_water_level://水位过低
+                //开
+                if (flag6 == true)
+                {
+                    civ_low_water_level.setImageResource(R.color.theme_green);
+                    iv_low_water_level.setImageResource(R.mipmap.img_scene_open);
+                    flag6 = false;
+                }else if (flag6 == false)
+                {
+                    civ_low_water_level.setImageResource(R.color.second_theme);
+                    iv_low_water_level.setImageResource(R.mipmap.img_scene_off);
+                    flag6 = true;
+                }
+                break;
+
+
+            case R.id.cv_home_headlight: //大灯
+                break;
+            case R.id.cv_home_fast_fan: //排风扇
+                break;
+            case R.id.cv_home_quick_sluice: //水闸
+                break;
+            case R.id.cv_home_quick_temperature : //温湿度
+                break;
+
         }
     }
-
 
 
 }
