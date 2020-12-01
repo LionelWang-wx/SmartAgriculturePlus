@@ -53,6 +53,12 @@ public class ControrAdapter extends RecyclerView.Adapter<ControrAdapter.ControrV
         }else {
             controrViewHolder= (ControrViewHolder) view.getTag();
         }
+        controrViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
         controrViewHolder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {

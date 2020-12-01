@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.myapp.smartagricultureplus">
-
-<!--    //扫描二维码-->
-    <uses-permission android:name="android.permission.INTERNET" />
-    <!-- 获取手机相机的权限 -->
+    <!-- //扫描二维码 -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 获取手机相机的权限 -->
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.FLASHLIGHT" />
-
-<!--    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />-->
+    <uses-permission android:name="android.permission.FLASHLIGHT" /> <!-- <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" /> -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.WRITE_CONTACTS" />
@@ -27,15 +23,11 @@
     <uses-permission android:name="android.permission.WRITE_SMS" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.GET_TASKS" />
-<!--    <uses-permission android:name="android.permission.WRITE_SETTINGS" />-->
+    <uses-permission android:name="android.permission.GET_TASKS" /> <!-- <uses-permission android:name="android.permission.WRITE_SETTINGS" /> -->
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_CALL_LOG" />
-
-    <!-- 相机 -->
-    <uses-permission android:name="android.permission.CAMERA" />
-    <!-- 闪光灯 -->
+    <uses-permission android:name="android.permission.READ_CALL_LOG" /> <!-- 相机 -->
+    <uses-permission android:name="android.permission.CAMERA" /> <!-- 闪光灯 -->
     <uses-permission android:name="android.permission.FLASHLIGHT" />
 
     <uses-feature android:name="android.hardware.camera" />
@@ -43,16 +35,12 @@
 
     <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.VIBRATE" />
-
-    <!-- Optional for location -->
+    <uses-permission android:name="android.permission.VIBRATE" /> <!-- Optional for location -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.RUN_INSTRUMENTATION" />
-
-    <!-- ibeacon -->
+    <uses-permission android:name="android.permission.RUN_INSTRUMENTATION" /> <!-- ibeacon -->
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.SENSOR_INFO" />
@@ -61,31 +49,16 @@
 
     <uses-feature
         android:name="android.hardware.bluetooth_le"
-        android:required="true" />
-
-    <!-- 系统日历 -->
+        android:required="true" /> <!-- 系统日历 -->
     <uses-permission android:name="android.permission.READ_CALENDAR" />
     <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- 允许访问WiFi网络状态信息（必须） -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" /> <!-- 允许读取手机状态（必须） -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 允许访问网络状态（必须） -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 允许写手机存储（必须） -->
+    <uses-permission android:name="android.permission.RECEIVE_SMS" /> <!-- GUI自动填充验证码功能（非必须） -->
+    <uses-permission android:name="android.permission.READ_SMS" />
 
-
-    <uses-permission
-        android:name="android.permission.ACCESS_WIFI_STATE" />
-<!--    允许访问WiFi网络状态信息（必须）-->
-    <uses-permission
-        android:name="android.permission.READ_PHONE_STATE" />
-<!--    允许读取手机状态（必须）-->
-    <uses-permission
-        android:name="android.permission.ACCESS_NETWORK_STATE" />
-<!--    允许访问网络状态（必须）-->
-    <uses-permission
-        android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-<!--    允许写手机存储（必须）-->
-    <uses-permission
-        android:name="android.permission.RECEIVE_SMS" />
-<!--    GUI自动填充验证码功能（非必须）-->
-    <uses-permission
-        android:name="android.permission.READ_SMS" />
-<!--    从短信中读取验证码接口（非必须）-->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -94,7 +67,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartAgriculturePlus">
-        <activity android:name=".Activity.TextActivity"></activity>
+        <activity android:name=".Activity.DevicesActivity"></activity>
+        <activity android:name=".Activity.TextActivity" />
         <activity android:name=".Activity.Scanning_DeviceActivity" />
         <activity android:name=".Activity.OtherActivity" />
         <activity android:name=".Activity.MainActivity" />
