@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -19,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.myapp.smartagricultureplus.Activity.OtherActivity;
 import com.myapp.smartagricultureplus.Object.Weather;
 import com.myapp.smartagricultureplus.R;
 import com.myapp.smartagricultureplus.interfaceJava.RequestDataBackListener;
@@ -34,7 +36,7 @@ import cn.smssdk.gui.RegisterPage;
 import static android.content.Context.MODE_PRIVATE;
 
 public class Me_Fragment extends BaseFragment implements View.OnClickListener {
-    LinearLayout llt_login,ll_feedback;
+    LinearLayout llt_login,ll_feedback,ll_setting;
     TextView tv_backLogin,tv_userId;
     public SharedPreferences sp;
     public SharedPreferences.Editor edit;
@@ -54,6 +56,8 @@ public class Me_Fragment extends BaseFragment implements View.OnClickListener {
     }
 
     private void onClick() {
+        ll_setting.setOnClickListener(this);
+        ll_feedback.setOnClickListener(this);
         llt_login.setOnClickListener(this);
         tv_backLogin.setOnClickListener(this);
     }
@@ -69,6 +73,7 @@ public class Me_Fragment extends BaseFragment implements View.OnClickListener {
     }
 
     private void initView() {
+        ll_setting=getActivity().findViewById(R.id.ll_setting);
         ll_feedback=getActivity().findViewById(R.id.ll_feedback);
          tv_userId=getActivity().findViewById(R.id.tv_userId);
          llt_login=getActivity().findViewById(R.id.llt_login);
@@ -111,7 +116,14 @@ public class Me_Fragment extends BaseFragment implements View.OnClickListener {
                 dialog.show();
                 break;
             case R.id.ll_feedback:
-
+                Intent intent1=new Intent(getActivity(), OtherActivity.class);
+                intent1.putExtra("fragmentName","feedback");
+                getActivity().startActivity(intent1);
+                break;
+            case R.id.ll_setting:
+                Intent intent2=new Intent(getActivity(), OtherActivity.class);
+                intent2.putExtra("fragmentName","setting");
+                getActivity().startActivity(intent2);
                 break;
         }
     }

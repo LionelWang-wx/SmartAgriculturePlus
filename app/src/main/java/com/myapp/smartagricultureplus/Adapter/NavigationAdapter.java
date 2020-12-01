@@ -14,7 +14,7 @@ import com.myapp.smartagricultureplus.Activity.MainActivity;
 import com.myapp.smartagricultureplus.R;
 
 public class NavigationAdapter extends RecyclerView.Adapter<com.myapp.smartagricultureplus.Adapter.NavigationAdapter.NavigationViewHolder> {
-int[] icon = new int[]{R.mipmap.cat,R.mipmap.home,R.mipmap.black_people};
+int[] icon = new int[]{R.mipmap.navigation_image1,R.mipmap.navigation_image2,R.mipmap.navigation_image3};
     Context context;
     public NavigationAdapter(Context context) {
         this.context=context;

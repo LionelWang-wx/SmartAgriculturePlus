@@ -132,7 +132,7 @@
                 android:layout_marginLeft="20dp"
                 android:textSize="18dp"
                 android:textColor="@color/black"
-                android:text="消息中心"
+                android:text="操作记录"
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
@@ -176,7 +176,7 @@
                 android:layout_marginLeft="20dp"
                 android:textSize="18dp"
                 android:textColor="@color/black"
-                android:text="常见问题与反馈"
+                android:text="关于"
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
@@ -244,6 +244,7 @@
         android:layout_width="match_parent"
         android:layout_height="70dp">
         <LinearLayout
+            android:id="@+id/ll_setting"
             android:gravity="left"
             android:layout_weight="1"
             android:layout_width="match_parent"

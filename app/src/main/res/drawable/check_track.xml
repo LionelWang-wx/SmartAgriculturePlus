@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 高度40 此处设置宽度无效 -->
+    <size android:height="25dp" android:width="120dp"/>
+    <!-- 圆角弧度 20 -->
+    <corners android:radius="25dp"/>
+
+    <!-- 变化率 angle=0 X轴负方向-->
+    <gradient
+        android:endColor="#B0E0E6"
+        android:startColor="#B0E0E6"
+        android:angle="0"/>
+</shape>
