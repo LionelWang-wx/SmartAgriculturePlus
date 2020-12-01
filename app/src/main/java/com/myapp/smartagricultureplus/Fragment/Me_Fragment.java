@@ -12,6 +12,7 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -156,5 +157,24 @@ public class Me_Fragment extends BaseFragment implements View.OnClickListener {
             }
         });
         page.show(context);
+    }
+
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+        if (hidden){
+            sp = getActivity().getSharedPreferences("user", MODE_PRIVATE);
+            String userId=sp.getString("userId","");
+            if (userId==""){
+                tv_userId.setText("立即登录");
+            }else {
+                tv_userId.setText(userId);
+                tv_backLogin.setVisibility(View.VISIBLE);
+            }
+            Log.e("BaseFragment","Me_Fragment:true");
+        }
+        else {
+            Log.e("BaseFragment","Me_Fragment:false");
+        }
     }
 }

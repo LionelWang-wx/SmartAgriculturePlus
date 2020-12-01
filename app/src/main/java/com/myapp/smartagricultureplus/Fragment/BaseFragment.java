@@ -19,7 +19,7 @@ public class BaseFragment extends Fragment {
 
 
     @Override
-    public void onAttach(@NonNull Context context) {
+    public void onAttach(@NonNull Context context){
         super.onAttach(context);
         Log.e("BaseFragment","Me_Fragment:onAttach");
     }

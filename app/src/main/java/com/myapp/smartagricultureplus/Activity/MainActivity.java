@@ -2,11 +2,19 @@ package com.myapp.smartagricultureplus.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
@@ -32,9 +40,9 @@ public class MainActivity extends AppCompatActivity {
     private List<String> mtitls = new ArrayList<>(Arrays.asList("首页", "检测", "控制", "我的"));
     private List<TabView> mtad = new ArrayList<>();
     private static final String BUNDLE_KEY_POS = "bundle_key_pos";
-
+    Toolbar toolBar;
     private int mCurTabPos;
-
+    private DrawerLayout drawer_layout;
     private Home_Fragment home_fragment;
     private Monitor_Fragment monitor_fragment;
     private Contror_Fragment contror_fragment;
@@ -44,17 +52,27 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
-
+//        getSupportActionBar().hide();
+        toolBar = findViewById(R.id.toolBar);
+        drawer_layout=findViewById(R.id.drawer_layout);
+        //设置ToolBar的实例
+        this.setSupportActionBar(toolBar);
+        ActionBar actionBar=getSupportActionBar();
+        if (actionBar!=null){
+            //让导航按钮显示出来
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            //设置导航按钮图标(先试用默认图标)
+            actionBar.setHomeAsUpIndicator(R.mipmap.img_not_logged_in);
+        }
 
         // 后台中存储关键信息和数据
         // 旋转屏幕后在回到页面时恢复数据
         if (savedInstanceState != null) {
             mCurTabPos = savedInstanceState.getInt(BUNDLE_KEY_POS, 0);
         }
+        initViews();
 
-        initviews();
         initviewpagerAdapter();
         initData();
     }
@@ -129,13 +147,14 @@ public class MainActivity extends AppCompatActivity {
             @NonNull
             @Override
             public Object instantiateItem(@NonNull ViewGroup container, int position) {
-//
+
                 return super.instantiateItem(container,position);
             }
 
             @Override
             public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
 //                frag.remove(position);
+                Log.d("MainActivity", "instantiateItem: ");
                 super.destroyItem(container, position, object);
             }
         });
@@ -174,7 +193,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void initviews() {
+    private void initViews() {
         viewPager = findViewById(R.id.tab_vp_pager);
         tb_wechat1 = findViewById(R.id.tb_bt_wechat1);
         tb_wechat2 = findViewById(R.id.tb_bt_wechat2);
@@ -210,5 +229,30 @@ public class MainActivity extends AppCompatActivity {
             }
 
         }
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.toolbar,menu);
+        return true;
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:
+                drawer_layout.openDrawer(GravityCompat.START);
+
+                break;
+            case R.id.messageCenter:
+
+                break;
+            case R.id.userHeader:
+
+                break;
+        }
+        return true;
     }
 }
