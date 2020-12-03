@@ -6,12 +6,16 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.myapp.smartagricultureplus.Adapter.MonitorAdapter;
 import com.myapp.smartagricultureplus.Object.Device;
 import com.myapp.smartagricultureplus.R;
+
+import org.xmlpull.v1.XmlPullParser;
 
 import java.util.ArrayList;
 
@@ -24,7 +28,14 @@ public class Monitor_All_Fragment extends Fragment {
             R.mipmap.img_irrigator,R.mipmap.add_circle};
     String[] deviceNameAll=new String[]{"智能负离子风扇","吸顶式风扇灯","Wi-Fi智能调光器",
     "WiFi水浸报警器","双模智能空调","Wi-Fi智能彩色冷暖光球泡灯","Wi-Fi电量智能统计插座","温度传感器",
-    "光照传感器","土壤湿度传感器","风向风力传感器","摄像头传感器","全景摄像头","热成像摄像头","AI摄像头","双模智能电热水器","WiFi门窗磁感应器","更多设备"};
+    "光照传感器","土壤湿度传感器","风向风力传感器","摄像头传感器","全景摄像头","热成像摄像头","AI摄像头",
+            "双模智能电热水器","WiFi门窗磁感应器","更多设备"};
+    int[] devicesLayout=new int[]{R.layout.temperature_layout,R.layout.temperature_layout,R.layout.temperature_layout,R.layout.temperature_layout,
+            R.layout.temperature_layout,R.layout.temperature_layout,R.layout.temperature_layout,R.layout.temperature_layout,
+            R.layout.temperature_layout,R.layout.temperature_layout,R.layout.temperature_layout,R.layout.temperature_layout,
+            R.layout.temperature_layout,R.layout.temperature_layout,R.layout.temperature_layout,R.layout.temperature_layout,
+            R.layout.temperature_layout,R.layout.temperature_layout};
+
     int[] deviceBackgroundAll=new int[]{R.mipmap.img_small_background,R.mipmap.iv_device_background,R.mipmap.img_small_background,R.mipmap.iv_device_background
             ,R.mipmap.img_small_background,R.mipmap.iv_device_background
             ,R.mipmap.img_small_background,R.mipmap.iv_device_background
@@ -50,11 +61,10 @@ public class Monitor_All_Fragment extends Fragment {
         rcv_monitor_All = getActivity().findViewById(R.id.rcv_monitor_All);
     }
 
-    private void initData() {
-
+    private void initData(){
         devices = new ArrayList<>();
         for (int i=0;i<deviceIconAll.length;i++){
-            Device device=new Device(deviceIconAll[i],deviceNameAll[i],deviceBackgroundAll[i]);
+            Device device=new Device(deviceIconAll[i],deviceNameAll[i],deviceBackgroundAll[i],devicesLayout[i]);
             devices.add(device);
         }
     }

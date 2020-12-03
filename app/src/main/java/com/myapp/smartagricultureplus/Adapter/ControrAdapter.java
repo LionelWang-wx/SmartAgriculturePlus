@@ -3,6 +3,7 @@ package com.myapp.smartagricultureplus.Adapter;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -14,6 +15,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.myapp.smartagricultureplus.Activity.DevicesActivity;
+import com.myapp.smartagricultureplus.Activity.OtherActivity;
 import com.myapp.smartagricultureplus.Object.Device;
 import com.myapp.smartagricultureplus.R;
 import com.myapp.smartagricultureplus.tool.DatabaseHelper;
@@ -56,7 +59,13 @@ public class ControrAdapter extends RecyclerView.Adapter<ControrAdapter.ControrV
         controrViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                int position=controrViewHolder.getLayoutPosition();
+                Device device=devices.get(position);
+                Intent intent=new Intent(context, DevicesActivity.class);
+                intent.putExtra("device",device);
+//                intent.putExtra("fragmentName",device.getDeviceName());
+//                intent.putExtra("devicesLayout",device.getDevicesLayout());
+                context.startActivity(intent);
             }
         });
         controrViewHolder.itemView.setOnLongClickListener(new View.OnLongClickListener() {

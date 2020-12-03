@@ -13,6 +13,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 String CREATE_CONTROL_DEVICE="create table ControlDevices ("
         + "userId text, "
         + "deviceIcon integer, "
+        + "devicesLayout integer, "
         + "deviceName text)";
     public DatabaseHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);

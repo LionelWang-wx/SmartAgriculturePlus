@@ -70,7 +70,7 @@
         <activity android:name=".Activity.TextActivity" />
         <activity android:name=".Activity.Scanning_DeviceActivity" />
         <activity android:name=".Activity.OtherActivity" />
-        <activity android:name=".Activity.MainActivity" />
+        <activity android:name=".Activity.MainActivity"  />
         <activity android:name=".Activity.BaseActivity" />
         <activity android:name=".Activity.LoadingActivity">
             <intent-filter>
@@ -80,6 +80,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activity.NavigationActivity" />
+        <activity android:name=".Activity.DevicesActivity"/>
     </application>
 
 </manifest>

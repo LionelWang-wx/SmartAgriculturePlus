@@ -51,7 +51,7 @@ public class Contror_Fragment extends Fragment {
         }
 
         @Override
-        public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        public void onActivityCreated(@Nullable Bundle savedInstanceState){
             super.onActivityCreated(savedInstanceState);
             initView();
             initData();
@@ -130,7 +130,8 @@ public class Contror_Fragment extends Fragment {
                         String userIdReturn = cursor.getString(cursor.getColumnIndex("userId"));
                         int deviceIconReturn = cursor.getInt(cursor.getColumnIndex("deviceIcon"));
                         String deviceNameReturn = cursor.getString(cursor.getColumnIndex("deviceName"));
-                        device=new Device(userIdReturn,deviceIconReturn,deviceNameReturn);
+                        int devicesLayout = cursor.getInt(cursor.getColumnIndex("devicesLayout"));
+                        device=new Device(userIdReturn,deviceIconReturn,deviceNameReturn,devicesLayout);
                         devices.add(device);
                     }while (cursor.moveToNext());
                     cursor.close();

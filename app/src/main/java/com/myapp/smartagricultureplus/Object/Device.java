@@ -1,12 +1,23 @@
 package com.myapp.smartagricultureplus.Object;
 
-public class Device {
+
+import java.io.Serializable;
+
+public class Device implements Serializable {
     String userId;
     int deviceIcon;
     String deviceName;
     int deviceBackground;
+    int devicesLayout;
 
     public Device() {
+    }
+//    userIdReturn,deviceIconReturn,deviceNameReturn,devicesLayout
+    public Device(String userId, int deviceIcon, String deviceName, int devicesLayout) {
+        this.userId = userId;
+        this.deviceIcon = deviceIcon;
+        this.deviceName = deviceName;
+        this.devicesLayout = devicesLayout;
     }
 
     public Device(int deviceIcon, String deviceName) {
@@ -19,11 +30,26 @@ public class Device {
         this.deviceName = deviceName;
         this.deviceBackground = deviceBackground;
     }
+//    deviceIconAll[i],deviceNameAll[i],deviceBackgroundAll[i],devicesLayout[i]
+    public Device(int deviceIcon, String deviceName, int deviceBackground, int devicesLayout) {
+        this.deviceIcon = deviceIcon;
+        this.deviceName = deviceName;
+        this.deviceBackground = deviceBackground;
+        this.devicesLayout = devicesLayout;
+    }
 
     public Device(String userId, int deviceIcon, String deviceName) {
         this.userId = userId;
         this.deviceIcon = deviceIcon;
         this.deviceName = deviceName;
+    }
+
+    public int getDevicesLayout() {
+        return devicesLayout;
+    }
+
+    public void setDevicesLayout(int devicesLayout) {
+        this.devicesLayout = devicesLayout;
     }
 
     public String getUserId() {

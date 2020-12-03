@@ -82,6 +82,7 @@ ArrayList<Device> devices;
                                             contentValues.put("userId",userId);
                                             contentValues.put("deviceIcon",device.getDeviceIcon());
                                             contentValues.put("deviceName",device.getDeviceName());
+                                            contentValues.put("devicesLayout",device.getDevicesLayout());
                                             db.insert("ControlDevices",null,contentValues);
                                             db.close();
                                         }
@@ -148,6 +149,7 @@ ArrayList<Device> devices;
     @Override
     public void onBindViewHolder(@NonNull MonitorViewHolder holder, int position) {
         Device device=devices.get(position);
+        int s=device.getDevicesLayout();
         holder.iv_deviceIcon.setImageResource(device.getDeviceIcon());
         holder.tv_deviceName.setText(device.getDeviceName());
         holder.rl_deviceBackground.setBackgroundResource(device.getDeviceBackground());

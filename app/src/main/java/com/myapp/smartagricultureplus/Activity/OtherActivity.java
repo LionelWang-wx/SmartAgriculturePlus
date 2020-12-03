@@ -1,13 +1,11 @@
 package com.myapp.smartagricultureplus.Activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-
 import android.os.Bundle;
-
+import com.myapp.smartagricultureplus.Fragment.DevicesFragment;
 import com.myapp.smartagricultureplus.Fragment.NotificationCenterFragment;
+import com.myapp.smartagricultureplus.Object.Device;
 import com.myapp.smartagricultureplus.OtherFragment.FeedbackFragment;
 import com.myapp.smartagricultureplus.OtherFragment.SettingFragment;
 import com.myapp.smartagricultureplus.R;
@@ -46,7 +44,6 @@ public class OtherActivity extends BaseActivity {
              transaction3.replace(R.id.llt_fragment,settingFragment);
              transaction3.commit();
              break;
-
      }
     }
 

@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         if (actionBar!=null){
             //让导航按钮显示出来
             actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setTitle("");
             //设置导航按钮图标(先试用默认图标)
             actionBar.setHomeAsUpIndicator(R.mipmap.img_not_logged_in);
         }
