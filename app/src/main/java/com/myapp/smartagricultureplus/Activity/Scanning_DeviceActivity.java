@@ -104,7 +104,6 @@ public class Scanning_DeviceActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().hide();
         setContentView(R.layout.activity_scanning_device);
         //全屏显示
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);

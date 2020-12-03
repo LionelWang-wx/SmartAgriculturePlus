@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.myapp.smartagricultureplus.Activity.MainActivity;
@@ -32,7 +34,7 @@ int[] icon = new int[]{R.mipmap.navigation_image1,R.mipmap.navigation_image2,R.m
             navigationViewHolder=new NavigationViewHolder(view);
             view.setTag(navigationViewHolder);
         }
-        navigationViewHolder.btn_button.setOnClickListener(new View.OnClickListener() {
+        navigationViewHolder.tv_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(context, MainActivity.class);
@@ -49,7 +51,7 @@ int[] icon = new int[]{R.mipmap.navigation_image1,R.mipmap.navigation_image2,R.m
         int iconSon=icon[position];
         holder.imageView.setBackgroundResource(iconSon);
         if (position==2){
-            holder.btn_button.setVisibility(View.VISIBLE);
+            holder.tv_button.setVisibility(View.VISIBLE);
         }
     }
 
@@ -60,10 +62,10 @@ int[] icon = new int[]{R.mipmap.navigation_image1,R.mipmap.navigation_image2,R.m
 
     class NavigationViewHolder extends RecyclerView.ViewHolder{
         ImageView imageView;
-        Button btn_button;
+        TextView tv_button;
         public NavigationViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView=itemView.findViewById(R.id.iv_navigationImage);
-            btn_button=itemView.findViewById(R.id.btn_button);        }
+            tv_button=itemView.findViewById(R.id.tv_button);        }
     }
 }

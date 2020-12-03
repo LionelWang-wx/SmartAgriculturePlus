@@ -7,8 +7,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,15 +16,12 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
-
 import com.myapp.smartagricultureplus.DiyView.TabView;
 import com.myapp.smartagricultureplus.Fragment.Contror_Fragment;
 import com.myapp.smartagricultureplus.Fragment.Home_Fragment;
 import com.myapp.smartagricultureplus.Fragment.Me_Fragment;
 import com.myapp.smartagricultureplus.Fragment.Monitor_Fragment;
 import com.myapp.smartagricultureplus.R;
-
-import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -64,9 +59,9 @@ public class MainActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setTitle("");
             //设置导航按钮图标(先试用默认图标)
-            actionBar.setHomeAsUpIndicator(R.mipmap.img_not_logged_in);
+            actionBar.setHomeAsUpIndicator(R.mipmap.home);
+//            actionBar
         }
-
         // 后台中存储关键信息和数据
         // 旋转屏幕后在回到页面时恢复数据
         if (savedInstanceState != null) {
@@ -248,9 +243,6 @@ public class MainActivity extends AppCompatActivity {
 
                 break;
             case R.id.messageCenter:
-
-                break;
-            case R.id.userHeader:
 
                 break;
         }
