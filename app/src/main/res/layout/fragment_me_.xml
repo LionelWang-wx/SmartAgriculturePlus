@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     android:background="@color/theme_background"
     android:orientation="vertical">
-
     <RelativeLayout
         android:background="@color/background"
         android:layout_width="match_parent"
@@ -14,16 +13,7 @@
             android:gravity="right"
             android:layout_width="match_parent"
             android:layout_height="50dp">
-            <ImageView
-                android:id="@+id/iv_me_Scanning"
-                android:layout_marginRight="20dp"
-                android:layout_marginTop="20dp"
-                android:background="@mipmap/image_sanf"
-                android:layout_width="28dp"
-                android:layout_height="28dp"/>
         </LinearLayout>
-
-
         <LinearLayout
             android:id="@+id/llt_login"
             android:layout_alignParentBottom="true"
@@ -55,18 +45,13 @@
                 android:textColor="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
-
-
         </LinearLayout>
-
                 <ImageView
                     android:layout_marginRight="20dp"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:src="@mipmap/img_nextpage"/>
             </LinearLayout>
-
-
 </RelativeLayout>
     <LinearLayout
         android:orientation="horizontal"
@@ -99,18 +84,14 @@
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="70dp">
-
             <ImageView
                 android:layout_marginRight="20dp"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_gravity="center"
                 android:src="@mipmap/img_nextpage"/>
-
         </LinearLayout>
-
     </LinearLayout>
-
     <LinearLayout
         android:orientation="horizontal"
         android:layout_marginTop="20dp"
@@ -143,16 +124,13 @@
             android:layout_width="match_parent"
             android:background="@color/background"
             android:layout_height="70dp">
-
             <ImageView
                 android:layout_marginRight="20dp"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_gravity="center"
                 android:src="@mipmap/img_nextpage"/>
-
         </LinearLayout>
-
     </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
@@ -161,7 +139,6 @@
         android:layout_width="match_parent"
         android:layout_height="70dp">
         <LinearLayout
-
             android:gravity="left"
             android:layout_weight="1"
             android:layout_width="match_parent"
@@ -186,16 +163,13 @@
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="70dp">
-
             <ImageView
                 android:layout_marginRight="20dp"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_gravity="center"
                 android:src="@mipmap/img_nextpage"/>
-
         </LinearLayout>
-
     </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
@@ -227,7 +201,6 @@
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="70dp">
-
             <ImageView
                 android:layout_marginRight="20dp"
                 android:layout_width="20dp"
@@ -235,7 +208,6 @@
                 android:layout_gravity="center"
                 android:src="@mipmap/img_nextpage"/>
         </LinearLayout>
-
     </LinearLayout>
     <LinearLayout
         android:id="@+id/ll_setting"
@@ -249,14 +221,12 @@
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="70dp">
-
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_gravity="center"
                 android:layout_marginLeft="20dp"
                 android:background="@mipmap/img_set_up" />
-
             <TextView
                 android:layout_marginLeft="20dp"
                 android:textSize="18dp"
@@ -271,16 +241,13 @@
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="70dp">
-
             <ImageView
                 android:layout_marginRight="20dp"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_gravity="center"
                 android:src="@mipmap/img_nextpage"/>
-
         </LinearLayout>
-
     </LinearLayout>
     <TextView
         android:id="@+id/tv_backLogin"
@@ -295,5 +262,4 @@
         android:padding="8dp"
         android:visibility="invisible"
         />
-
 </LinearLayout>
