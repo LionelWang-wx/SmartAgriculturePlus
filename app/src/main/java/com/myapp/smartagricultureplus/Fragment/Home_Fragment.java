@@ -1,6 +1,5 @@
 package com.myapp.smartagricultureplus.Fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,8 +12,8 @@ import androidx.viewpager.widget.ViewPager;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
-import android.util.SparseArray;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -23,7 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
-import com.myapp.smartagricultureplus.Activity.OtherActivity;
+import com.myapp.smartagricultureplus.Animation.TouchPullView;
 import com.myapp.smartagricultureplus.Object.Weather;
 import com.myapp.smartagricultureplus.R;
 import com.myapp.smartagricultureplus.interfaceJava.RequestDataBackListener;
@@ -43,6 +42,14 @@ public class Home_Fragment extends Fragment implements View.OnClickListener {
     ViewPager viewPager;
     private ArrayList<ImageView> mdots=new ArrayList<>();
     TextView tv_temperature,tv_date,tv_cityName;
+
+    /**
+     * 下拉刷新
+     */
+    private LinearLayout linear_home_refresh;
+    private static final float TOUCH_MOVE_MAX_Y = 600;
+    private float mTouchMoveStartY = 0;
+    private TouchPullView touchPull;
 
     /**
      *  智慧场景
@@ -101,8 +108,6 @@ public class Home_Fragment extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_blank, container, false);
-
-
     }
 
     @Override
@@ -150,6 +155,53 @@ public class Home_Fragment extends Fragment implements View.OnClickListener {
             Log.e("printStackTrace",""+e);
         }
     });
+
+
+        /**
+         * 下拉刷新
+         */
+//        linear_home_refresh = getActivity().findViewById(R.id.linear_home_refresh);
+//        touchPull = getActivity().findViewById(R.id.TouchPull);
+//        linear_home_refresh.setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View view, MotionEvent motionEvent) {
+//
+//                //得到用户意图
+//                int action = motionEvent.getActionMasked();
+//                switch (action)
+//                {
+//                    case MotionEvent.ACTION_DOWN://按下
+//
+//                        mTouchMoveStartY = motionEvent.getY();
+//
+//                        return true;
+//
+//                    case MotionEvent.ACTION_MOVE://滑动
+//                        float y = motionEvent.getY();
+//
+//                        if (y>=mTouchMoveStartY)
+//                        {
+//                            float moveSize = y-mTouchMoveStartY;
+//                            float progress = moveSize>=TOUCH_MOVE_MAX_Y
+//                                    ?
+//                                    1:moveSize/TOUCH_MOVE_MAX_Y;
+//                            //设置进度给TouchPull
+//                            touchPull.setProgress(progress);
+//
+//                        }
+//                        return  true;
+//                    case MotionEvent.ACTION_UP:
+//                        touchPull.release();
+//                        return true;
+//                    default:
+//
+//                        break;
+//                }
+//                return false;
+//            }
+//        });
+
+
     }
 
     private void onClick() {
@@ -343,6 +395,8 @@ public class Home_Fragment extends Fragment implements View.OnClickListener {
         cv_home_fast_fan.setOnClickListener(this);
         cv_home_quick_sluice.setOnClickListener(this);
         cv_home_quick_temperature.setOnClickListener(this);
+
+
     }
 
     @Override

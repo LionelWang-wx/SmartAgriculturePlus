@@ -25,13 +25,14 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="100dp">
+
             <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_marginLeft="20dp"
                 android:id="@+id/civ_userHeader"
-                android:src="@mipmap/img_not_logged_in"
+                android:src="@mipmap/j"
                 android:layout_gravity="center"
-                android:layout_width="60dp"
-                android:layout_height="60dp">
+                android:layout_width="65dp"
+                android:layout_height="65dp">
 
             </de.hdodenhof.circleimageview.CircleImageView>
             <TextView

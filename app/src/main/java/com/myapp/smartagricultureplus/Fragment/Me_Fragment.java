@@ -33,6 +33,7 @@ import java.util.HashMap;
 import cn.smssdk.EventHandler;
 import cn.smssdk.SMSSDK;
 import cn.smssdk.gui.RegisterPage;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -41,6 +42,9 @@ public class Me_Fragment extends BaseFragment implements View.OnClickListener {
     TextView tv_backLogin,tv_userId;
     public SharedPreferences sp;
     public SharedPreferences.Editor edit;
+
+    //头像
+    private CircleImageView civ_userHeader;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -61,6 +65,7 @@ public class Me_Fragment extends BaseFragment implements View.OnClickListener {
         ll_feedback.setOnClickListener(this);
         llt_login.setOnClickListener(this);
         tv_backLogin.setOnClickListener(this);
+        civ_userHeader.setOnClickListener(this);
     }
 
     private void initData() {
@@ -74,11 +79,14 @@ public class Me_Fragment extends BaseFragment implements View.OnClickListener {
     }
 
     private void initView() {
-        ll_setting=getActivity().findViewById(R.id.ll_setting);
-        ll_feedback=getActivity().findViewById(R.id.ll_feedback);
+         ll_setting=getActivity().findViewById(R.id.ll_setting);
+         ll_feedback=getActivity().findViewById(R.id.ll_feedback);
          tv_userId=getActivity().findViewById(R.id.tv_userId);
          llt_login=getActivity().findViewById(R.id.llt_login);
          tv_backLogin=getActivity().findViewById(R.id.tv_backLogin);
+
+         //头像
+         civ_userHeader = getActivity().findViewById(R.id.civ_userHeader);
     }
 
     @Override
@@ -126,8 +134,13 @@ public class Me_Fragment extends BaseFragment implements View.OnClickListener {
                 intent2.putExtra("fragmentName","setting");
                 getActivity().startActivity(intent2);
                 break;
+            case R.id.civ_userHeader:
+                Zoominphoto();
+                break;
         }
     }
+
+
     public void sendCode(Context context) {
         RegisterPage page = new RegisterPage();
         //如果使用我们的ui，没有申请模板编号的情况下需传null
@@ -177,4 +190,8 @@ public class Me_Fragment extends BaseFragment implements View.OnClickListener {
             Log.e("BaseFragment","Me_Fragment:false");
         }
     }
+    private void Zoominphoto()
+    {
+    }
+
 }
