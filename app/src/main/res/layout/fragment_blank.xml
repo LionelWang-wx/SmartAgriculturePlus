@@ -237,11 +237,12 @@
             android:layout_height="55dp"
             android:layout_gravity="center"
             app:cardCornerRadius="38dp">
+
             <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="45dp"
+                android:layout_width="41dp"
                 android:layout_height="45dp"
                 android:layout_gravity="center"
-                android:src="@mipmap/img_quick_sluice_open"/>
+                android:src="@mipmap/img_quick_sluice_open" />
         </androidx.cardview.widget.CardView>
 
 

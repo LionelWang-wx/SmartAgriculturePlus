@@ -38,7 +38,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 import static android.content.Context.MODE_PRIVATE;
 
 public class Me_Fragment extends BaseFragment implements View.OnClickListener {
-    LinearLayout llt_login,ll_feedback,ll_setting;
+    LinearLayout llt_login,ll_feedback,ll_setting,ll_operating,ll_moreservice,ll_green_house;
     TextView tv_backLogin,tv_userId;
     public SharedPreferences sp;
     public SharedPreferences.Editor edit;
@@ -61,6 +61,9 @@ public class Me_Fragment extends BaseFragment implements View.OnClickListener {
     }
 
     private void onClick() {
+        ll_green_house.setOnClickListener(this);
+        ll_moreservice.setOnClickListener(this);
+        ll_operating.setOnClickListener(this);
         ll_setting.setOnClickListener(this);
         ll_feedback.setOnClickListener(this);
         llt_login.setOnClickListener(this);
@@ -79,6 +82,9 @@ public class Me_Fragment extends BaseFragment implements View.OnClickListener {
     }
 
     private void initView() {
+        ll_green_house=getActivity().findViewById(R.id.ll_green_house);
+        ll_moreservice=getActivity().findViewById(R.id.ll_moreservice);
+        ll_operating=getActivity().findViewById(R.id.ll_operating);
          ll_setting=getActivity().findViewById(R.id.ll_setting);
          ll_feedback=getActivity().findViewById(R.id.ll_feedback);
          tv_userId=getActivity().findViewById(R.id.tv_userId);
@@ -137,6 +143,22 @@ public class Me_Fragment extends BaseFragment implements View.OnClickListener {
             case R.id.civ_userHeader:
                 Zoominphoto();
                 break;
+            case R.id.ll_operating:
+                Intent intent3=new Intent(getActivity(), OtherActivity.class);
+                intent3.putExtra("fragmentName","operating");
+                getActivity().startActivity(intent3);
+                break;
+            case R.id.ll_moreservice:
+                Intent intent4=new Intent(getActivity(), OtherActivity.class);
+                intent4.putExtra("fragmentName","moreservice");
+                getActivity().startActivity(intent4);
+                break;
+            case R.id.ll_green_house:
+                Intent intent5=new Intent(getActivity(), OtherActivity.class);
+                intent5.putExtra("fragmentName","greenhouse");
+                getActivity().startActivity(intent5);
+                break;
+
         }
     }
 

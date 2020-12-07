@@ -500,6 +500,7 @@ public class Home_Fragment extends Fragment implements View.OnClickListener {
 
 
             case R.id.cv_home_headlight: //大灯
+
                 break;
             case R.id.cv_home_fast_fan: //排风扇
                 break;

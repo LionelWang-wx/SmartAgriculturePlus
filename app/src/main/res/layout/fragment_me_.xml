@@ -55,6 +55,7 @@
             </LinearLayout>
 </RelativeLayout>
     <LinearLayout
+        android:id="@+id/ll_green_house"
         android:orientation="horizontal"
         android:layout_marginTop="20dp"
         android:background="@color/background"
@@ -175,6 +176,7 @@
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/ll_moreservice"
         android:orientation="horizontal"
         android:background="@color/white"
         android:layout_width="match_parent"

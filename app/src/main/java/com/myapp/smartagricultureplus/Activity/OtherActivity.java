@@ -4,9 +4,13 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import com.myapp.smartagricultureplus.Fragment.DevicesFragment;
+import com.myapp.smartagricultureplus.Fragment.Me_Fragment;
 import com.myapp.smartagricultureplus.Fragment.NotificationCenterFragment;
 import com.myapp.smartagricultureplus.Object.Device;
 import com.myapp.smartagricultureplus.OtherFragment.FeedbackFragment;
+import com.myapp.smartagricultureplus.OtherFragment.GreenHouseFragment;
+import com.myapp.smartagricultureplus.OtherFragment.MoreServiceFragment;
+import com.myapp.smartagricultureplus.OtherFragment.OperationRecordFragment;
 import com.myapp.smartagricultureplus.OtherFragment.SettingFragment;
 import com.myapp.smartagricultureplus.R;
 
@@ -44,6 +48,31 @@ public class OtherActivity extends BaseActivity {
              transaction3.replace(R.id.llt_fragment,settingFragment);
              transaction3.commit();
              break;
+         case "operating":
+             FragmentTransaction transaction4=fragmentManager.beginTransaction();
+             OperationRecordFragment operationRecordFragment=new OperationRecordFragment();
+             transaction4.replace(R.id.llt_fragment,operationRecordFragment);
+             transaction4.commit();
+             break;
+         case "moreservice":
+             FragmentTransaction transaction5=fragmentManager.beginTransaction();
+             MoreServiceFragment moreServiceFragment=new MoreServiceFragment();
+             transaction5.replace(R.id.llt_fragment,moreServiceFragment);
+             transaction5.commit();
+             break;
+         case "greenhouse":
+             FragmentTransaction transaction6=fragmentManager.beginTransaction();
+             GreenHouseFragment greenHouseFragment=new GreenHouseFragment();
+             transaction6.replace(R.id.llt_fragment,greenHouseFragment);
+             transaction6.commit();
+             break;
+         case "ivback":
+             FragmentTransaction transaction7=fragmentManager.beginTransaction();
+             Me_Fragment me_fragment=new Me_Fragment();
+             transaction7.replace(R.id.llt_fragment,me_fragment);
+             transaction7.commit();
+             break;
+
      }
     }
 
