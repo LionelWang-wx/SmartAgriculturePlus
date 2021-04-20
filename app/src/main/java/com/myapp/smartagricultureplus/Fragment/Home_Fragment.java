@@ -1,6 +1,17 @@
 package com.myapp.smartagricultureplus.Fragment;
 
+import android.app.AlertDialog;
+import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -9,24 +20,9 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import android.os.Handler;
-import android.os.Message;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import com.google.gson.Gson;
 import com.myapp.smartagricultureplus.Animation.TouchPullView;
-import com.myapp.smartagricultureplus.Object.Weather;
 import com.myapp.smartagricultureplus.R;
-import com.myapp.smartagricultureplus.interfaceJava.RequestDataBackListener;
-import com.myapp.smartagricultureplus.tool.WeatherNetworkRequest;
+import com.myapp.smartagricultureplus.SimulationData.SimulationDataService;
 
 import java.util.ArrayList;
 
@@ -35,13 +31,20 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Home_Fragment extends Fragment implements View.OnClickListener {
     //轮播图片
-    private int [] Carousel=new int[]{R.mipmap.img_carousel3,R.mipmap.img_carousel1,R.mipmap.img_carousel2,R.mipmap.img_carousel3,R.mipmap.img_carousel1};
-    private  boolean icon=true;
+    private int[] Carousel = new int[]{R.mipmap.img_carousel3, R.mipmap.img_carousel1, R.mipmap.img_carousel2, R.mipmap.img_carousel3, R.mipmap.img_carousel1};
+    private boolean icon = true;
     //小圆点容器
     private LinearLayout circlecan;
     ViewPager viewPager;
-    private ArrayList<ImageView> mdots=new ArrayList<>();
-    TextView tv_temperature,tv_date,tv_cityName;
+    private ArrayList<ImageView> mdots = new ArrayList<>();
+    TextView tv_temperature, tv_date, tv_cityName;
+    SimulationDataService.SimulationDataBinder binder;
+    Context context;
+    AlertDialog dialog = null;
+
+    public Home_Fragment(Context context) {
+        this.context = context;
+    }
 
     /**
      * 下拉刷新
@@ -122,40 +125,100 @@ public class Home_Fragment extends Fragment implements View.OnClickListener {
         viewPager.setCurrentItem(1);
     }
 
-    private void initData(){
+    private void initData() {
+//            AlertDialog dialog = new AlertDialog.Builder(context)
+//                                    .setTitle("请确认是否删除该开包图片?")
+//                                    .setPositiveButton("确认", (dialogInterface, i) -> {
+//
+//                                    })
+//                                    .setNegativeButton("取消", (dialogInterface, i) -> {
+//
+//                                    })
+//                                    .create();
+//                                    dialog.show();
+//                        dialog.setTitle("你好你好");
 
-            WeatherNetworkRequest weatherNetworkRequest=new WeatherNetworkRequest();
-            weatherNetworkRequest.setRequestData("成都", new RequestDataBackListener() {
-        @Override
-        public void onFinish(String responseData) {
-            Gson gson=new Gson();
-            Weather weather=gson.fromJson(responseData,Weather.class);
-            if (weather.getReason().equals("查询成功!")){
-                getActivity().runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        tv_temperature.setText(weather.getResult().getRealtime().getTemperature()+"℃");
-                        tv_date.setText(weather.getResult().getFuture().get(0).getDate());
-                        tv_cityName.setText(weather.getResult().getCity());
-                    }
-                });
-            }else{
-                getActivity().runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        Toast.makeText(getActivity(),"更新天气失败！",Toast.LENGTH_SHORT).show();
-                    }
-                });
-            }
+//        Intent intent = new Intent(context, SimulationDataService.class);
+//        context.bindService(intent, new ServiceConnection() {
+//            @Override
+//            public void onServiceConnected(ComponentName name, IBinder service) {
+//                if (service==null) return;
+//                binder = (SimulationDataService.SimulationDataBinder) service;
+//                SimulationDataService dataService = binder.getService();
+//                dataService.setDataCallBack(new SimulationDataService.DataCallBack() {
+//                    @Override
+//                    public void success(int data) {
+//                        tv_temperature.setText(data+"℃");
+//                        if(data>30){
+//                            cvi_high_temperature.setImageResource(R.color.theme_green);
+//                            iv_high_temperature.setImageResource(R.mipmap.img_scene_open);
+//                            flag3 = false;
+//                        }
+//
+////                        if (data>40){
+////                            Log.e("TAG","showDialog1");
+////                            if (dialog==null){
+////                                dialog = new AlertDialog.Builder(context)
+////                                        .setTitle("温度过高警告!:"+data+"℃")
+////                                        .setPositiveButton("确认", (dialogInterface, i) -> {
+////
+////                                        })
+////                                        .setNegativeButton("取消", (dialogInterface, i) -> {
+////
+////                                        })
+////                                        .create();
+////                                dialog.show();
+//////                                dialog.dismiss();
+////                            }
+////
+//////                        dialog.setTitle("你好你好");
+////                            Log.e("TAG","showDialog2");
+////                        }
+//                    }
+//                    @Override
+//                    public void failed(String msg) {
+//                        Toast.makeText(getActivity(),msg,Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+//            }
+//
+//            @Override
+//            public void onServiceDisconnected(ComponentName name) {
+//
+//            }
+//        }, getActivity().BIND_AUTO_CREATE);
 
-        }
-
-        @Override
-        public void onError(Exception e) {
-            Log.e("printStackTrace",""+e);
-        }
-    });
-
+//            WeatherNetworkRequest weatherNetworkRequest=new WeatherNetworkRequest();
+//            weatherNetworkRequest.setRequestData("成都", new RequestDataBackListener() {
+//        @Override
+//        public void onFinish(String responseData) {
+//            Gson gson=new Gson();
+//            Weather weather=gson.fromJson(responseData,Weather.class);
+//            if (weather.getReason().equals("查询成功!")){
+//                getActivity().runOnUiThread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        tv_temperature.setText(weather.getResult().getRealtime().getTemperature()+"℃");
+//                        tv_date.setText(weather.getResult().getFuture().get(0).getDate());
+//                        tv_cityName.setText(weather.getResult().getCity());
+//                    }
+//                });
+//            }else{
+//                getActivity().runOnUiThread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        Toast.makeText(getActivity(),"更新天气失败！",Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+//            }
+//
+//        }
+//
+//        @Override
+//        public void onError(Exception e) {
+//            Log.e("printStackTrace",""+e);
+//        }
+//    });
 
         /**
          * 下拉刷新

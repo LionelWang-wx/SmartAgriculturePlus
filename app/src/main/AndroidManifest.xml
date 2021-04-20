@@ -29,10 +29,8 @@
     <uses-permission android:name="android.permission.READ_CALL_LOG" /> <!-- 相机 -->
     <uses-permission android:name="android.permission.CAMERA" /> <!-- 闪光灯 -->
     <uses-permission android:name="android.permission.FLASHLIGHT" />
-
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
-
     <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.VIBRATE" /> <!-- Optional for location -->
@@ -70,7 +68,7 @@
         <activity android:name=".Activity.TextActivity" />
         <activity android:name=".Activity.Scanning_DeviceActivity" />
         <activity android:name=".Activity.OtherActivity" />
-        <activity android:name=".Activity.MainActivity"  />
+        <activity android:name=".Activity.MainActivity" />
         <activity android:name=".Activity.BaseActivity" />
         <activity android:name=".Activity.LoadingActivity">
             <intent-filter>
@@ -80,7 +78,16 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activity.NavigationActivity" />
-        <activity android:name=".Activity.DevicesActivity"/>
+        <activity
+            android:name=".Activity.DevicesActivity"
+            android:screenOrientation="landscape">
+
+        </activity>
+
+        <service
+            android:name=".SimulationData.SimulationDataService"
+            android:enabled="true"
+            android:exported="true" />
     </application>
 
 </manifest>

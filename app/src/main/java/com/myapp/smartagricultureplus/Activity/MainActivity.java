@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,12 +17,15 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
+
 import com.myapp.smartagricultureplus.DiyView.TabView;
 import com.myapp.smartagricultureplus.Fragment.Contror_Fragment;
 import com.myapp.smartagricultureplus.Fragment.Home_Fragment;
 import com.myapp.smartagricultureplus.Fragment.Me_Fragment;
 import com.myapp.smartagricultureplus.Fragment.Monitor_Fragment;
 import com.myapp.smartagricultureplus.R;
+import com.myapp.smartagricultureplus.SimulationData.SimulationDataService;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -44,13 +48,15 @@ public class MainActivity extends AppCompatActivity {
     private Me_Fragment me_fragment;
 
     private CircleImageView mCleimgScabInt;
+    SimulationDataService.SimulationDataBinder binder;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 //        getSupportActionBar().hide();
         toolBar = findViewById(R.id.toolBar);
-        drawer_layout=findViewById(R.id.drawer_layout);
+        drawer_layout = findViewById(R.id.drawer_layout);
         //设置ToolBar的实例
         this.setSupportActionBar(toolBar);
         ActionBar actionBar=getSupportActionBar();
@@ -83,6 +89,49 @@ public class MainActivity extends AppCompatActivity {
         outState.putInt(BUNDLE_KEY_POS, viewPager.getCurrentItem());
     }
     private void initData() {
+
+//        Intent intent = new Intent(this, SimulationDataService.class);
+//        bindService(intent, new ServiceConnection() {
+//            @Override
+//            public void onServiceConnected(ComponentName name, IBinder service) {
+//                if (service==null) return;
+//                binder = (SimulationDataService.SimulationDataBinder) service;
+//                SimulationDataService dataService = binder.getService();
+//                dataService.setDataCallBack(new SimulationDataService.DataCallBack() {
+//                    @Override
+//                    public void success(int data) {
+//                        Log.e("TAG","data"+data);
+////                        if (data.50){
+//                            AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
+//                            dialog.setTitle("警告");
+//                            dialog.setMessage("高温警告,请及时处理");
+//                            dialog.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+//                                @Override
+//                                public void onClick(DialogInterface dialogInterface, int i) {
+//                                    Toast.makeText(MainActivity.this,"确定",Toast.LENGTH_SHORT).show();
+//                                }
+//                            });
+//                            dialog.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+//                                @Override
+//                                public void onClick(DialogInterface dialogInterface, int i) {
+//                                    Toast.makeText(MainActivity.this,"取消",Toast.LENGTH_SHORT).show();
+//                                }
+//                            });
+//                            dialog.show();
+////                        }
+//                    }
+//                    @Override
+//                    public void failed(String msg) {
+//                        Toast.makeText(MainActivity.this,msg,Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+//            }
+
+//            @Override
+//            public void onServiceDisconnected(ComponentName name) {
+//
+//            }
+//        },BIND_AUTO_CREATE);
 
         for (int i = 0; i < mtad.size(); i++) {
             TabView view = mtad.get(i);
@@ -132,7 +181,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
 //                Tab_fragment fragment = Tab_fragment.newInstance(mtitls.get(position));
-                return home_fragment=new Home_Fragment();
+                return home_fragment = new Home_Fragment(MainActivity.this);
             }
 
             @Override
