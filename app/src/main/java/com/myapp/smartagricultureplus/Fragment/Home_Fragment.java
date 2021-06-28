@@ -13,19 +13,18 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.cardview.widget.CardView;
-import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.PagerAdapter;
-import androidx.viewpager.widget.ViewPager;
-
 import com.myapp.smartagricultureplus.Animation.TouchPullView;
 import com.myapp.smartagricultureplus.R;
 import com.myapp.smartagricultureplus.SimulationData.SimulationDataService;
 
 import java.util.ArrayList;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 
@@ -360,7 +359,6 @@ public class Home_Fragment extends Fragment implements View.OnClickListener {
                 view.setBackgroundResource(Carousel[position]);
                 ViewGroup.LayoutParams viewGroup = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
                 container.addView(view);
-
                 return view;
             }
 

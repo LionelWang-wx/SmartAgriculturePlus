@@ -17,12 +17,12 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
 
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import com.myapp.smartagricultureplus.Activity.Data;
 import com.myapp.smartagricultureplus.R;
 import com.myapp.smartagricultureplus.SimulationData.SimulationDataService;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import static android.content.Context.BIND_AUTO_CREATE;
 
@@ -116,6 +116,7 @@ public class DevicesFragment extends Fragment {
                         @Override
                         public void run() {
                             jsonData = "250,330,324,218,135,147,260,323,424,456,676,878,342";
+
                             wv_temperatureChart.loadUrl("javascript:optionObj('" + jsonData + "')");
                         }
                     });
